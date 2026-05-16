@@ -15,8 +15,8 @@ export function Players() {
     return matchesSearch && matchesRole;
   });
   return (
-    <div className="min-h-screen pt-12 pb-24 relative">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-neonpurple/10 blur-[100px] pointer-events-none" />
+    <div className="min-h-screen pt-32 md:pt-40 pb-24 relative">
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald/10 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
@@ -32,7 +32,7 @@ export function Players() {
               }}
               className="text-5xl md:text-7xl font-bebas text-white mb-2">
               
-              PLAYER <span className="text-neonpurple">DIRECTORY</span>
+              PLAYER <span className="text-emerald">DIRECTORY</span>
             </motion.h1>
             <motion.p
               initial={{
@@ -71,7 +71,7 @@ export function Players() {
                 placeholder="Search players..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full sm:w-64 bg-white/5 border border-white/10 rounded-lg py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-neonpurple transition-colors text-white" />
+                className="w-full sm:w-64 bg-white/5 border border-white/10 rounded-lg py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-emerald transition-colors text-white" />
               
             </div>
             <div className="flex bg-white/5 rounded-lg p-1 border border-white/10 overflow-x-auto hide-scrollbar">
@@ -79,7 +79,7 @@ export function Players() {
               <button
                 key={role}
                 onClick={() => setActiveRole(role)}
-                className={`px-4 py-1.5 rounded-md font-oswald text-xs tracking-wider whitespace-nowrap transition-all ${activeRole === role ? 'bg-neonpurple text-white shadow-[0_0_10px_rgba(123,46,255,0.5)]' : 'text-gray-400 hover:text-white'}`}>
+                className={`px-4 py-1.5 rounded-md font-oswald text-xs tracking-wider whitespace-nowrap transition-all ${activeRole === role ? 'bg-emerald text-midnight shadow-[0_0_15px_rgba(0,255,102,0.5)]' : 'text-gray-400 hover:text-white'}`}>
                 
                   {role}
                 </button>
@@ -107,7 +107,7 @@ export function Players() {
                 }}>
                 
                 <Link to={`/players/${player.id}`} className="block group">
-                  <div className="glass-panel rounded-xl overflow-hidden border border-white/10 hover:border-neonpurple/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(123,46,255,0.2)]">
+                  <div className="glass-panel rounded-xl overflow-hidden border border-white/10 hover:border-emerald/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,255,102,0.2)]">
                     <div className="relative h-48 bg-deepnight overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-t from-midnight to-transparent z-10" />
                       <img
@@ -128,7 +128,7 @@ export function Players() {
 
                     <div className="p-5 relative z-20 -mt-6">
                       <div className="flex justify-between items-end mb-2">
-                        <h3 className="font-bebas text-2xl text-white group-hover:text-neonpurple transition-colors">
+                        <h3 className="font-bebas text-2xl text-white group-hover:text-emerald transition-colors">
                           {player.name}
                         </h3>
                         <span className="font-bebas text-xl text-gray-500">
@@ -161,7 +161,7 @@ export function Players() {
                           <div className="text-[10px] text-gray-500 uppercase font-bold">
                             {player.role === 'Bowler' ? 'Wickets' : 'Runs'}
                           </div>
-                          <div className="text-xs text-electric font-bold">
+                          <div className="text-xs text-emerald font-bold">
                             {player.role === 'Bowler' ?
                             player.stats.wickets :
                             player.stats.runs}

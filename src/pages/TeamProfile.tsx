@@ -10,7 +10,7 @@ export function TeamProfile() {
   return (
     <div className="min-h-screen pb-24">
       {/* Hero Banner */}
-      <div className="relative h-[40vh] md:h-[50vh] flex items-end pb-12">
+      <div className="relative h-[40vh] md:h-[50vh] flex items-end pb-12 pt-32 md:pt-40">
         <div
           className="absolute inset-0 z-0 opacity-40 mix-blend-overlay"
           style={{

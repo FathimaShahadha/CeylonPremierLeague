@@ -1,250 +1,214 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { PlayCircle, Users, BarChart3, Handshake } from 'lucide-react';
+import { PlayCircle, ChevronRight, Zap } from 'lucide-react';
+import { LiveTicker } from '../layout/LiveTicker';
+import { matches, teams } from '../../data/mockData';
+
 export function Hero() {
   const [timeLeft, setTimeLeft] = useState({
-    days: 2,
     hours: 14,
     minutes: 30,
     seconds: 45
   });
+
+  const liveMatch = matches.find((m) => m.status === 'Live') || matches[0];
+  const team1 = teams.find(t => t.id === liveMatch.team1Id);
+  const team2 = teams.find(t => t.id === liveMatch.team2Id);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
-        let { days, hours, minutes, seconds } = prev;
-        if (seconds > 0) seconds--;else
-        {
+        let { hours, minutes, seconds } = prev;
+        if (seconds > 0) seconds--;
+        else {
           seconds = 59;
-          if (minutes > 0) minutes--;else
-          {
+          if (minutes > 0) minutes--;
+          else {
             minutes = 59;
-            if (hours > 0) hours--;else
-            {
-              hours = 23;
-              if (days > 0) days--;
-            }
+            if (hours > 0) hours--;
           }
         }
-        return {
-          days,
-          hours,
-          minutes,
-          seconds
-        };
+        return { hours, minutes, seconds };
       });
     }, 1000);
     return () => clearInterval(timer);
   }, []);
+
+  const particles = Array.from({ length: 30 });
+
   return (
-    <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Layers */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-30"
+    <div className="relative min-h-screen flex flex-col justify-end overflow-hidden bg-midnight pt-20">
+      {/* Cinematic Backgrounds */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-          'url(https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=2000&q=80)'
-        }} />
+          backgroundImage: 'url(https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=2000&q=80)',
+          filter: 'contrast(1.2) saturate(1.2) brightness(0.6)'
+        }}
+      />
+      <div className="absolute inset-0 z-0 bg-gradient-to-t from-midnight via-midnight/80 to-transparent" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-r from-midnight via-midnight/90 to-transparent w-full md:w-2/3" />
       
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-midnight/80 via-midnight/50 to-midnight" />
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,rgba(0,194,255,0.15)_0%,transparent_60%)]" />
-
-      {/* Animated Light Beams */}
-      <motion.div
-        className="absolute top-0 left-1/4 w-1 h-full bg-electric/20 blur-md"
-        animate={{
-          opacity: [0.2, 0.6, 0.2],
-          rotate: [-5, 5, -5]
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: 'easeInOut'
-        }}
-        style={{
-          transformOrigin: 'top'
-        }} />
-      
-      <motion.div
-        className="absolute top-0 right-1/4 w-1 h-full bg-gold/20 blur-md"
-        animate={{
-          opacity: [0.2, 0.6, 0.2],
-          rotate: [5, -5, 5]
-        }}
-        transition={{
-          duration: 7,
-          repeat: Infinity,
-          ease: 'easeInOut'
-        }}
-        style={{
-          transformOrigin: 'top'
-        }} />
-      
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center">
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 30
-          }}
-          animate={{
-            opacity: 1,
-            y: 0
-          }}
-          transition={{
-            duration: 0.8,
-            delay: 0.2
-          }}>
-          
-          <h2 className="font-oswald text-electric tracking-[0.3em] uppercase text-sm md:text-lg mb-4 neon-glow-blue inline-block px-4 py-1 rounded-full border border-electric/30 bg-electric/10">
-            The Ultimate Cricket Experience
-          </h2>
-        </motion.div>
-
-        <motion.h1
-          className="font-bebas text-6xl md:text-8xl lg:text-[120px] leading-[0.9] tracking-tight mb-6"
-          initial={{
-            opacity: 0,
-            scale: 0.9
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1
-          }}
-          transition={{
-            duration: 1,
-            type: 'spring'
-          }}>
-          
-          <span className="text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
-            CEYLON
-          </span>
-          <br />
-          <span className="text-gradient-primary drop-shadow-[0_0_20px_rgba(0,229,255,0.5)] mr-4">
-            PREMIER
-          </span>
-          <span className="text-4xl md:text-6xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#FFF5C3] drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]">
-            LEAGUE
-          </span>
-        </motion.h1>
-
-        <motion.p
-          className="font-oswald text-xl md:text-3xl text-gray-300 tracking-widest uppercase mb-12"
-          initial={{
-            opacity: 0
-          }}
-          animate={{
-            opacity: 1
-          }}
-          transition={{
-            duration: 0.8,
-            delay: 0.5
-          }}>
-          
-          Power. Passion.{' '}
-          <span className="text-electric">10 Overs of Fire.</span>
-        </motion.p>
-
-        {/* Countdown Timer */}
-        <motion.div
-          className="glass-panel rounded-2xl p-6 md:p-8 mb-12 border-electric/30 neon-glow-blue inline-block"
-          initial={{
-            opacity: 0,
-            y: 20
-          }}
-          animate={{
-            opacity: 1,
-            y: 0
-          }}
-          transition={{
-            duration: 0.8,
-            delay: 0.7
-          }}>
-          
-          <p className="font-oswald text-sm text-gray-400 uppercase tracking-widest mb-4">
-            Next Match Starts In
-          </p>
-          <div className="flex gap-4 md:gap-8">
-            {[
-            {
-              label: 'Days',
-              value: timeLeft.days
-            },
-            {
-              label: 'Hours',
-              value: timeLeft.hours
-            },
-            {
-              label: 'Mins',
-              value: timeLeft.minutes
-            },
-            {
-              label: 'Secs',
-              value: timeLeft.seconds
-            }].
-            map((item, i) =>
-            <div key={i} className="flex flex-col items-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-deepnight rounded-xl flex items-center justify-center border border-white/10 shadow-inner mb-2">
-                  <span className="font-bebas text-3xl md:text-4xl text-white">
-                    {item.value.toString().padStart(2, '0')}
-                  </span>
-                </div>
-                <span className="font-oswald text-xs text-electric uppercase tracking-wider">
-                  {item.label}
-                </span>
-              </div>
-            )}
-          </div>
-        </motion.div>
-
-        {/* CTAs */}
-        <motion.div
-          className="flex flex-wrap justify-center gap-4 md:gap-6"
-          initial={{
-            opacity: 0
-          }}
-          animate={{
-            opacity: 1
-          }}
-          transition={{
-            duration: 0.8,
-            delay: 0.9
-          }}>
-          
-          <Link
-            to="/live"
-            className="group relative px-8 py-4 bg-electric text-midnight font-bebas text-xl tracking-wider rounded-lg overflow-hidden neon-glow-blue flex items-center gap-2 hover:scale-105 transition-transform">
-            
-            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-            <PlayCircle className="w-6 h-6 relative z-10" />
-            <span className="relative z-10">WATCH LIVE</span>
-          </Link>
-
-          <Link
-            to="/teams"
-            className="px-8 py-4 glass text-white font-bebas text-xl tracking-wider rounded-lg hover:bg-white/10 transition-colors flex items-center gap-2 border border-white/20 hover:border-white/40">
-            
-            <Users className="w-6 h-6" />
-            VIEW TEAMS
-          </Link>
-
-          <Link
-            to="/stats"
-            className="hidden md:flex px-8 py-4 glass text-white font-bebas text-xl tracking-wider rounded-lg hover:bg-white/10 transition-colors items-center gap-2 border border-white/20 hover:border-white/40">
-            
-            <BarChart3 className="w-6 h-6" />
-            PLAYER STATS
-          </Link>
-
-          <Link
-            to="/sponsors"
-            className="hidden lg:flex px-8 py-4 glass text-white font-bebas text-xl tracking-wider rounded-lg hover:bg-white/10 transition-colors items-center gap-2 border border-white/20 hover:border-white/40">
-            
-            <Handshake className="w-6 h-6" />
-            SPONSOR US
-          </Link>
-        </motion.div>
+      {/* Particle Effects */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {particles.map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-white rounded-full opacity-20"
+            initial={{
+              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
+              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
+              scale: Math.random() * 2
+            }}
+            animate={{
+              y: [null, Math.random() * -500],
+              opacity: [0.2, 0.8, 0],
+            }}
+            transition={{
+              duration: Math.random() * 5 + 5,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+        ))}
       </div>
-    </div>);
 
+      {/* Spotlights */}
+      <motion.div 
+        className="absolute -top-1/4 -right-1/4 w-[1000px] h-[1000px] bg-emerald/10 rounded-full blur-[150px] mix-blend-screen"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{ duration: 8, repeat: Infinity }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-32 flex flex-col md:flex-row items-center justify-between gap-12">
+        
+        {/* Left Content - Typography */}
+        <div className="flex-1 w-full text-left">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <h2 className="font-oswald text-emerald tracking-[0.4em] uppercase text-sm md:text-base mb-6 flex items-center gap-4">
+              <span className="w-12 h-px bg-emerald" />
+              The Pinnacle of T10 Cricket
+            </h2>
+          </motion.div>
+
+          <motion.h1 
+            className="font-bebas text-7xl md:text-[140px] leading-[0.85] tracking-tight mb-8 relative"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, type: "spring", damping: 20 }}
+          >
+            <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-500">
+              CEYLON
+            </span>
+            <br />
+            <span className="text-emerald drop-shadow-[0_0_30px_rgba(0,255,102,0.4)] relative inline-block">
+              PREMIER
+              <motion.div 
+                className="absolute inset-0 bg-emerald/20 blur-2xl -z-10"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </span>
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orangeGlow to-gold">
+              LEAGUE
+            </span>
+          </motion.h1>
+
+          <motion.div 
+            className="flex flex-wrap gap-6 mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <Link to="/live" className="group relative px-8 py-5 bg-emerald text-midnight font-bebas text-2xl tracking-wider rounded-lg overflow-hidden neon-glow-emerald flex items-center gap-3">
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+              <PlayCircle className="w-8 h-8 relative z-10 group-hover:scale-110 transition-transform" />
+              <span className="relative z-10">WATCH LIVE</span>
+            </Link>
+            
+            <Link to="/matches" className="px-8 py-5 glass-panel text-white font-bebas text-2xl tracking-wider rounded-lg hover:bg-white/10 transition-colors flex items-center gap-3 border border-white/20 group hover:border-emerald/50">
+              <span className="relative z-10">FIXTURES</span>
+              <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Right Content - Floating Glass Card */}
+        <motion.div 
+          className="flex-1 w-full max-w-md hidden lg:block perspective-1000"
+          initial={{ opacity: 0, rotateY: 20, x: 50 }}
+          animate={{ opacity: 1, rotateY: 0, x: 0 }}
+          transition={{ duration: 1, delay: 0.8 }}
+        >
+          <motion.div 
+            className="glass-panel p-8 rounded-3xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-2xl relative overflow-hidden"
+            animate={{ y: [-10, 10, -10] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald/20 blur-[50px]" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-orangeGlow/20 blur-[50px]" />
+            
+            <div className="flex justify-between items-center mb-8 relative z-10">
+              <span className="font-oswald text-xs tracking-widest text-gray-400 uppercase">Live Now</span>
+              <span className="animate-pulse flex items-center gap-2 text-xs font-bold text-emerald bg-emerald/10 px-3 py-1.5 rounded-full border border-emerald/20">
+                <Zap className="w-3 h-3" /> MATCH 34
+              </span>
+            </div>
+
+            <div className="space-y-6 relative z-10">
+              <div className="flex justify-between items-center">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full border-2 border-white/10 overflow-hidden bg-deepnight">
+                    <img src={team1?.logo} alt={team1?.shortName} className="w-full h-full object-cover" />
+                  </div>
+                  <span className="font-bebas text-3xl text-white">{team1?.shortName}</span>
+                </div>
+                <span className="font-bebas text-3xl text-emerald">112/3</span>
+              </div>
+              
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+              
+              <div className="flex justify-between items-center">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full border-2 border-white/10 overflow-hidden bg-deepnight">
+                    <img src={team2?.logo} alt={team2?.shortName} className="w-full h-full object-cover" />
+                  </div>
+                  <span className="font-bebas text-3xl text-white">{team2?.shortName}</span>
+                </div>
+                <span className="font-bebas text-3xl text-gray-500">YTB</span>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center relative z-10">
+              <div>
+                <div className="font-oswald text-[10px] text-gray-400 uppercase tracking-widest mb-1">Time to next innings</div>
+                <div className="font-bebas text-2xl text-white flex gap-2">
+                  <span>{timeLeft.minutes.toString().padStart(2, '0')}</span>:
+                  <span>{timeLeft.seconds.toString().padStart(2, '0')}</span>
+                </div>
+              </div>
+              <Link to="/live" className="text-emerald hover:text-white transition-colors">
+                <ChevronRight className="w-8 h-8" />
+              </Link>
+            </div>
+          </motion.div>
+        </motion.div>
+
+      </div>
+
+      {/* Embedded Live Ticker overlapping bottom edge */}
+      <div className="absolute bottom-0 left-0 w-full z-20">
+        <LiveTicker />
+      </div>
+    </div>
+  );
 }

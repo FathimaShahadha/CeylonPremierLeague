@@ -45,7 +45,7 @@ export function MobileBottomNav() {
                 className="relative -top-5 flex flex-col items-center justify-center">
                 
                 <div
-                  className={`w-14 h-14 rounded-full flex items-center justify-center ${isActive ? 'bg-electric neon-glow-blue' : 'bg-neonpurple neon-glow-purple'} text-midnight transition-all duration-300`}>
+                  className={`w-14 h-14 rounded-full flex items-center justify-center ${isActive ? 'bg-emerald neon-glow-emerald' : 'bg-orangeGlow neon-glow-orange'} text-midnight transition-all duration-300`}>
                   
                   <Icon className="w-7 h-7 text-white" fill="currentColor" />
                 </div>
@@ -59,10 +59,10 @@ export function MobileBottomNav() {
             <Link
               key={item.path}
               to={item.path}
-              className={`flex flex-col items-center justify-center w-16 h-full transition-colors ${isActive ? 'text-electric' : 'text-gray-400 hover:text-gray-200'}`}>
+              className={`flex flex-col items-center justify-center w-16 h-full transition-colors ${isActive ? 'text-emerald' : 'text-gray-400 hover:text-gray-200'}`}>
               
               <Icon
-                className={`w-5 h-5 mb-1 ${isActive ? 'drop-shadow-[0_0_5px_rgba(0,194,255,0.8)]' : ''}`} />
+                className={`w-5 h-5 mb-1 ${isActive ? 'drop-shadow-[0_0_5px_rgba(0,255,102,0.8)]' : ''}`} />
               
               <span className="text-[10px] font-oswald tracking-wider">
                 {item.label}

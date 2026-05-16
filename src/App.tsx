@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import { Layout } from './components/layout/Layout';
+import { ScrollToTop } from './components/ScrollToTop';
 import {
   Home,
   Teams,
@@ -23,6 +24,7 @@ import {
 export function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Toaster theme="dark" position="top-right" />
       <Routes>
         <Route path="/" element={<Layout />}>

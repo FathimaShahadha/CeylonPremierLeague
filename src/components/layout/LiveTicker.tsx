@@ -9,8 +9,8 @@ export function LiveTicker() {
   '⚡ LIVE: Mumbai Strikers 112/3 (8.2 ov) vs Delhi Dynamos'];
 
   return (
-    <div className="w-full h-8 bg-electric text-midnight flex items-center overflow-hidden relative z-50">
-      <div className="absolute left-0 top-0 bottom-0 w-20 md:w-24 bg-electric z-10 flex items-center justify-center font-bold text-[10px] md:text-xs px-2 shadow-[5px_0_10px_rgba(0,194,255,1)]">
+    <div className="w-full h-8 bg-charcoal border-b border-white/10 text-gray-300 flex items-center overflow-hidden relative z-50">
+      <div className="absolute left-0 top-0 bottom-0 w-20 md:w-24 bg-emerald text-midnight z-10 flex items-center justify-center font-bold text-[10px] md:text-xs px-2 shadow-[5px_0_15px_rgba(0,255,102,0.4)]">
         LATEST
       </div>
       <motion.div

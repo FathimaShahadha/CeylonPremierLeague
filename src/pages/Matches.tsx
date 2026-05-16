@@ -12,8 +12,8 @@ export function Matches() {
     toast.success('Reminder set! We will notify you before the match starts.');
   };
   return (
-    <div className="min-h-screen pt-12 pb-24 relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-electric/5 blur-[100px] pointer-events-none" />
+    <div className="min-h-screen pt-32 md:pt-40 pb-24 relative">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emerald/5 blur-[100px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
@@ -28,7 +28,7 @@ export function Matches() {
             }}
             className="text-5xl md:text-7xl font-bebas text-white mb-2">
             
-            MATCH <span className="text-electric">FIXTURES</span>
+            MATCH <span className="text-emerald">FIXTURES</span>
           </motion.h1>
           <motion.p
             initial={{
@@ -53,7 +53,7 @@ export function Matches() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab as any)}
-              className={`px-6 md:px-10 py-3 rounded-md font-bebas text-xl tracking-wider transition-all ${activeTab === tab ? 'bg-electric text-midnight shadow-[0_0_15px_rgba(0,194,255,0.5)]' : 'text-gray-400 hover:text-white'}`}>
+              className={`px-6 md:px-10 py-3 rounded-md font-bebas text-xl tracking-wider transition-all ${activeTab === tab ? 'bg-emerald text-midnight shadow-[0_0_15px_rgba(0,255,102,0.5)]' : 'text-gray-400 hover:text-white'}`}>
               
                 {tab}
                 {tab === 'Live' && matches.some((m) => m.status === 'Live') &&
@@ -84,7 +84,7 @@ export function Matches() {
                 transition={{
                   delay: index * 0.1
                 }}
-                className={`glass-panel rounded-2xl overflow-hidden border ${match.status === 'Live' ? 'border-electric shadow-[0_0_20px_rgba(0,194,255,0.15)]' : 'border-white/10'}`}>
+                className={`glass-panel rounded-2xl overflow-hidden border ${match.status === 'Live' ? 'border-emerald shadow-[0_0_20px_rgba(0,255,102,0.15)]' : 'border-white/10'}`}>
                 
                   {/* Header */}
                   <div className="bg-white/5 px-6 py-3 border-b border-white/10 flex justify-between items-center">
@@ -124,7 +124,7 @@ export function Matches() {
                           {team1?.name}
                         </h3>
                         {match.score &&
-                      <div className="font-bebas text-3xl text-electric mt-2">
+                      <div className="font-bebas text-3xl text-emerald mt-2">
                             {match.score.team1}
                           </div>
                       }
@@ -175,7 +175,7 @@ export function Matches() {
                     {/* Footer Info */}
                     {(match.toss || match.result) &&
                   <div className="mt-8 pt-6 border-t border-white/10 text-center">
-                        <p className="font-oswald text-sm tracking-wider text-electric">
+                        <p className="font-oswald text-sm tracking-wider text-emerald">
                           {match.result || match.toss}
                         </p>
                       </div>
@@ -191,7 +191,7 @@ export function Matches() {
                     
                         <Bell className="w-4 h-4" /> REMIND ME
                       </button>
-                      <button className="flex items-center gap-2 px-6 py-2 rounded-lg bg-electric text-midnight border border-electric text-sm font-oswald tracking-wider hover:bg-white transition-colors">
+                      <button className="flex items-center gap-2 px-6 py-2 rounded-lg bg-emerald text-midnight border border-emerald text-sm font-oswald tracking-wider hover:bg-white transition-colors">
                         <Ticket className="w-4 h-4" /> BOOK TICKETS
                       </button>
                     </div>

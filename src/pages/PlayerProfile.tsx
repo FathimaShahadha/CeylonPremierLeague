@@ -55,12 +55,12 @@ export function PlayerProfile() {
   return (
     <div className="min-h-screen pb-24">
       {/* Hero Section */}
-      <div className="relative pt-20 pb-12 overflow-hidden">
+      <div className="relative pt-32 md:pt-40 pb-12 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-gradient-to-b from-midnight via-midnight to-deepnight" />
         <div
           className="absolute top-0 right-0 w-1/2 h-full z-0 opacity-20 mix-blend-screen"
           style={{
-            background: `radial-gradient(circle at center, ${team?.color || '#00C2FF'}, transparent 70%)`
+            background: `radial-gradient(circle at center, ${team?.color || '#00FF66'}, transparent 70%)`
           }} />
         
 
@@ -147,7 +147,7 @@ export function PlayerProfile() {
                 className="flex flex-wrap justify-center md:justify-start gap-4">
                 
                 <div className="glass px-4 py-2 rounded-lg flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-electric" />
+                  <Shield className="w-4 h-4 text-emerald" />
                   <span className="font-oswald text-sm tracking-wider">
                     {player.role}
                   </span>
@@ -172,7 +172,7 @@ export function PlayerProfile() {
           <button
             key={tab}
             onClick={() => setActiveTab(tab as any)}
-            className={`font-bebas text-2xl tracking-wider transition-colors ${activeTab === tab ? 'text-electric' : 'text-gray-500 hover:text-gray-300'}`}>
+            className={`font-bebas text-2xl tracking-wider transition-colors ${activeTab === tab ? 'text-emerald' : 'text-gray-500 hover:text-gray-300'}`}>
             
               {tab}
             </button>
@@ -193,7 +193,7 @@ export function PlayerProfile() {
                   </div>
                 </div>
                 <div className="glass-panel p-6 rounded-xl text-center border border-white/10">
-                  <div className="text-4xl font-bebas text-electric mb-1">
+                  <div className="text-4xl font-bebas text-emerald mb-1">
                     {player.stats.runs}
                   </div>
                   <div className="text-[10px] font-oswald text-gray-400 uppercase tracking-widest">
@@ -221,7 +221,7 @@ export function PlayerProfile() {
               {/* Chart */}
               <div className="glass-panel p-6 rounded-xl border border-white/10">
                 <h3 className="font-bebas text-2xl mb-6 flex items-center gap-2">
-                  <TrendingUp className="text-electric w-5 h-5" /> RECENT FORM
+                  <TrendingUp className="text-emerald w-5 h-5" /> RECENT FORM
                   (RUNS)
                 </h3>
                 <div className="h-[300px] w-full">
@@ -249,29 +249,29 @@ export function PlayerProfile() {
                     
                       <Tooltip
                       contentStyle={{
-                        backgroundColor: '#0B0F1A',
-                        border: '1px solid rgba(0,194,255,0.3)',
+                        backgroundColor: '#121212',
+                        border: '1px solid rgba(0,255,102,0.3)',
                         borderRadius: '8px'
                       }}
                       itemStyle={{
                         fontFamily: 'Oswald',
-                        color: '#00C2FF'
+                        color: '#00FF66'
                       }} />
                     
                       <Line
                       type="monotone"
                       dataKey="runs"
-                      stroke="#00C2FF"
+                      stroke="#00FF66"
                       strokeWidth={3}
                       dot={{
                         r: 6,
-                        fill: '#0B0F1A',
-                        stroke: '#00C2FF',
+                        fill: '#121212',
+                        stroke: '#00FF66',
                         strokeWidth: 2
                       }}
                       activeDot={{
                         r: 8,
-                        fill: '#00C2FF'
+                        fill: '#00FF66'
                       }} />
                     
                     </LineChart>
@@ -300,9 +300,9 @@ export function PlayerProfile() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4 bg-white/5 p-3 rounded-lg border border-electric/20">
-                    <div className="w-10 h-10 rounded-full bg-electric/20 flex items-center justify-center shrink-0">
-                      <Target className="w-5 h-5 text-electric" />
+                  <div className="flex items-center gap-4 bg-white/5 p-3 rounded-lg border border-emerald/20">
+                    <div className="w-10 h-10 rounded-full bg-emerald/20 flex items-center justify-center shrink-0">
+                      <Target className="w-5 h-5 text-emerald" />
                     </div>
                     <div>
                       <div className="font-bebas text-lg text-white">
@@ -319,17 +319,63 @@ export function PlayerProfile() {
           </div>
         }
 
-        {activeTab === 'Stats' &&
-        <div className="glass-panel p-8 rounded-xl border border-white/10 text-center py-20">
-            <BarChart3 className="w-12 h-12 text-gray-500 mx-auto mb-4 opacity-50" />
-            <h3 className="font-bebas text-2xl text-gray-400 mb-2">
-              DETAILED STATS
+        {activeTab === 'Stats' && (
+          <div className="glass-panel p-6 md:p-8 rounded-xl border border-white/10">
+            <h3 className="font-bebas text-3xl mb-8 flex items-center gap-2">
+              <BarChart3 className="text-emerald w-6 h-6" /> {player.role.toUpperCase()} CAREER STATS
             </h3>
-            <p className="text-sm font-oswald text-gray-500 tracking-wider">
-              Comprehensive statistics will be available soon.
-            </p>
+            
+            {(player.role === 'Batter' || player.role === 'All-Rounder' || player.role === 'Wicket-Keeper') && (
+              <div className="mb-12">
+                <h4 className="font-oswald text-sm text-gray-400 tracking-widest uppercase mb-4 border-b border-white/10 pb-2">Batting Statistics</h4>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                  {[
+                    { label: 'Matches', value: player.stats.matches },
+                    { label: 'Innings', value: player.stats.matches },
+                    { label: 'Runs', value: player.stats.runs, highlight: true },
+                    { label: 'Highest Score', value: player.stats.highestScore },
+                    { label: 'Strike Rate', value: player.stats.strikeRate },
+                    { label: 'Average', value: ((player.stats.runs || 0) / Math.max(player.stats.matches - 1, 1)).toFixed(2) },
+                    { label: '100s', value: Math.floor((player.stats.runs || 0) / 400) },
+                    { label: '50s', value: Math.floor((player.stats.runs || 0) / 100) },
+                    { label: 'Fours', value: Math.floor((player.stats.runs || 0) * 0.4 / 4) },
+                    { label: 'Sixes', value: Math.floor((player.stats.runs || 0) * 0.3 / 6) }
+                  ].map((stat, i) => (
+                    <div key={i} className={`bg-white/5 p-4 rounded-xl text-center border ${stat.highlight ? 'border-emerald/30 shadow-[0_0_15px_rgba(0,255,102,0.1)]' : 'border-white/5'}`}>
+                      <div className={`text-3xl font-bebas ${stat.highlight ? 'text-emerald' : 'text-white'} mb-1`}>{stat.value}</div>
+                      <div className="text-[10px] font-oswald text-gray-400 uppercase tracking-widest">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {(player.role === 'Bowler' || player.role === 'All-Rounder') && (
+              <div>
+                <h4 className="font-oswald text-sm text-gray-400 tracking-widest uppercase mb-4 border-b border-white/10 pb-2">Bowling Statistics</h4>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                  {[
+                    { label: 'Matches', value: player.stats.matches },
+                    { label: 'Wickets', value: player.stats.wickets, highlight: true },
+                    { label: 'Best Bowling', value: player.stats.bestBowling || '-' },
+                    { label: 'Economy', value: player.stats.economy },
+                    { label: 'Bowling SR', value: player.stats.wickets ? ((player.stats.matches * 24) / player.stats.wickets).toFixed(1) : '-' },
+                    { label: 'Maidens', value: Math.floor((player.stats.matches || 0) * 0.1) },
+                    { label: '4W Hauls', value: player.stats.bestBowling?.startsWith('4') ? 1 : 0 },
+                    { label: '5W Hauls', value: player.stats.bestBowling?.startsWith('5') ? 1 : 0 },
+                    { label: 'Dot Balls', value: Math.floor((player.stats.matches || 0) * 6.5) },
+                    { label: 'Overs Bowled', value: player.stats.matches * 2 }
+                  ].map((stat, i) => (
+                    <div key={i} className={`bg-white/5 p-4 rounded-xl text-center border ${stat.highlight ? 'border-[#00E5FF]/30 shadow-[0_0_15px_rgba(0,229,255,0.1)]' : 'border-white/5'}`}>
+                      <div className={`text-3xl font-bebas ${stat.highlight ? 'text-[#00E5FF]' : 'text-white'} mb-1`}>{stat.value}</div>
+                      <div className="text-[10px] font-oswald text-gray-400 uppercase tracking-widest">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
-        }
+        )}
       </div>
     </div>);
 

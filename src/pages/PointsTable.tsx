@@ -11,8 +11,8 @@ export function PointsTable() {
     return b.stats.nrr - a.stats.nrr;
   });
   return (
-    <div className="min-h-screen pt-12 pb-24 relative">
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-electric/5 blur-[120px] pointer-events-none" />
+    <div className="min-h-screen pt-32 md:pt-40 pb-24 relative">
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
@@ -27,7 +27,7 @@ export function PointsTable() {
             }}
             className="text-5xl md:text-7xl font-bebas text-white mb-2">
             
-            POINTS <span className="text-electric">TABLE</span>
+            POINTS <span className="text-emerald">TABLE</span>
           </motion.h1>
           <motion.p
             initial={{
@@ -81,7 +81,7 @@ export function PointsTable() {
                   <th className="p-4 font-oswald text-xs tracking-widest text-gray-400 uppercase text-center w-20">
                     NRR
                   </th>
-                  <th className="p-4 font-oswald text-xs tracking-widest text-electric uppercase text-center w-16">
+                  <th className="p-4 font-oswald text-xs tracking-widest text-emerald uppercase text-center w-16">
                     Pts
                   </th>
                   <th className="p-4 font-oswald text-xs tracking-widest text-gray-400 uppercase text-center w-32 hidden sm:table-cell">
@@ -113,11 +113,11 @@ export function PointsTable() {
                       transition={{
                         delay: index * 0.1
                       }}
-                      className={`group hover:bg-white/5 transition-colors ${isTop4 ? 'bg-electric/5' : ''}`}>
+                      className={`group hover:bg-white/5 transition-colors ${isTop4 ? 'bg-emerald/5' : ''}`}>
                       
                       <td className="p-4 text-center">
                         <div
-                          className={`w-8 h-8 rounded-full flex items-center justify-center mx-auto font-bebas text-xl ${isTop4 ? 'bg-electric text-midnight shadow-[0_0_10px_rgba(0,194,255,0.5)]' : 'bg-white/10 text-gray-400'}`}>
+                          className={`w-8 h-8 rounded-full flex items-center justify-center mx-auto font-bebas text-xl ${isTop4 ? 'bg-emerald text-midnight shadow-[0_0_15px_rgba(0,255,102,0.5)]' : 'bg-white/10 text-gray-400'}`}>
                           
                           {index + 1}
                         </div>
@@ -137,7 +137,7 @@ export function PointsTable() {
                             
                           </div>
                           <div>
-                            <div className="font-bebas text-xl text-white group-hover:text-electric transition-colors">
+                            <div className="font-bebas text-xl text-white group-hover:text-emerald transition-colors">
                               {team.name}
                             </div>
                             <div className="text-xs font-oswald text-gray-500 hidden sm:block">
@@ -159,7 +159,7 @@ export function PointsTable() {
                         {team.stats.nrr > 0 ? '+' : ''}
                         {team.stats.nrr.toFixed(3)}
                       </td>
-                      <td className="p-4 text-center font-bebas text-2xl text-electric font-bold">
+                      <td className="p-4 text-center font-bebas text-2xl text-emerald font-bold">
                         {team.stats.points}
                       </td>
                       <td className="p-4 text-center hidden sm:table-cell">
@@ -184,7 +184,7 @@ export function PointsTable() {
 
         <div className="mt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-oswald text-gray-400 tracking-wider">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-electric/20 border border-electric/50" />
+            <div className="w-3 h-3 rounded-full bg-emerald/20 border border-emerald/50" />
             <span>Top 4 teams qualify for Playoffs</span>
           </div>
           <div className="flex items-center gap-2 text-gray-500">

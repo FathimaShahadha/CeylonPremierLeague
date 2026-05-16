@@ -5,7 +5,7 @@ import { Shield, TrendingUp } from 'lucide-react';
 import { teams } from '../data/mockData';
 export function Teams() {
   return (
-    <div className="min-h-screen pt-12 pb-24 relative">
+    <div className="min-h-screen pt-32 md:pt-40 pb-24 relative">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-electric/10 to-transparent pointer-events-none" />
 

@@ -1,182 +1,133 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Star, Zap, Target } from 'lucide-react';
+import { Trophy, Star, Zap, Target, ArrowUpRight } from 'lucide-react';
 import { matches, teams, players } from '../../data/mockData';
+import { Link } from 'react-router-dom';
+
 export function FeaturedCards() {
-  const liveMatch = matches.find((m) => m.status === 'Live');
   const lastMatch = matches.find((m) => m.status === 'Completed');
   const mvp = players.sort((a, b) => b.mvpPoints - a.mvpPoints)[0];
-  const cards = [
-  {
-    title: 'LIVE NOW',
-    icon: <Zap className="w-5 h-5 text-electric" />,
-    glowClass: 'neon-glow-blue',
-    content: liveMatch ?
-    <div className="flex flex-col h-full justify-between">
-          <div className="flex justify-between items-center mb-4">
-            <span className="text-xs font-oswald text-gray-400">
-              {liveMatch.venue}
-            </span>
-            <span className="animate-pulse text-xs font-bold text-electric bg-electric/10 px-2 py-1 rounded">
-              LIVE
-            </span>
-          </div>
-          <div className="flex justify-between items-center">
-            <div className="text-center">
-              <div className="w-12 h-12 rounded-full bg-white/10 mb-2 mx-auto overflow-hidden">
-                <img
-              src={teams.find((t) => t.id === liveMatch.team1Id)?.logo}
-              alt="Team 1"
-              className="w-full h-full object-cover" />
-            
-              </div>
-              <span className="font-bebas text-lg">
-                {teams.find((t) => t.id === liveMatch.team1Id)?.shortName}
-              </span>
-            </div>
-            <div className="text-center px-4">
-              <span className="text-2xl font-bebas text-electric">
-                {liveMatch.score?.team1.split(' ')[0]}
-              </span>
-              <div className="text-xs text-gray-400">vs</div>
-              <span className="text-xl font-bebas text-gray-400">YTB</span>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 rounded-full bg-white/10 mb-2 mx-auto overflow-hidden">
-                <img
-              src={teams.find((t) => t.id === liveMatch.team2Id)?.logo}
-              alt="Team 2"
-              className="w-full h-full object-cover" />
-            
-              </div>
-              <span className="font-bebas text-lg">
-                {teams.find((t) => t.id === liveMatch.team2Id)?.shortName}
-              </span>
-            </div>
-          </div>
-        </div> :
-
-    <div className="flex items-center justify-center h-full text-gray-500">
-          No Live Matches
-        </div>
-
-  },
-  {
-    title: 'LAST RESULT',
-    icon: <Trophy className="w-5 h-5 text-gold" />,
-    glowClass: 'neon-glow-gold',
-    content: lastMatch ?
-    <div className="flex flex-col h-full justify-between">
-          <div className="text-xs font-oswald text-gray-400 mb-4 text-center">
-            {lastMatch.date}
-          </div>
-          <div className="flex justify-between items-center mb-4">
-            <span className="font-bebas text-xl">
-              {teams.find((t) => t.id === lastMatch.team1Id)?.shortName}
-            </span>
-            <span className="font-bebas text-xl text-gold">
-              {lastMatch.score?.team1.split(' ')[0]}
-            </span>
-          </div>
-          <div className="flex justify-between items-center mb-4">
-            <span className="font-bebas text-xl">
-              {teams.find((t) => t.id === lastMatch.team2Id)?.shortName}
-            </span>
-            <span className="font-bebas text-xl text-gray-400">
-              {lastMatch.score?.team2.split(' ')[0]}
-            </span>
-          </div>
-          <div className="text-xs text-center text-electric font-oswald tracking-wider">
-            {lastMatch.result}
-          </div>
-        </div> :
-    null
-  },
-  {
-    title: 'MVP OF THE WEEK',
-    icon: <Star className="w-5 h-5 text-neonpurple" />,
-    glowClass: 'neon-glow-purple',
-    content: mvp ?
-    <div className="flex items-center gap-4 h-full">
-          <div className="w-20 h-20 rounded-lg overflow-hidden shrink-0 border border-neonpurple/50">
-            <img
-          src={mvp.image}
-          alt={mvp.name}
-          className="w-full h-full object-cover" />
-        
-          </div>
-          <div>
-            <h4 className="font-bebas text-2xl text-white mb-1">{mvp.name}</h4>
-            <p className="text-xs text-gray-400 font-oswald mb-2">
-              {teams.find((t) => t.id === mvp.teamId)?.name}
-            </p>
-            <div className="inline-block bg-neonpurple/20 text-neonpurple text-xs px-2 py-1 rounded font-bold">
-              {mvp.mvpPoints} PTS
-            </div>
-          </div>
-        </div> :
-    null
-  },
-  {
-    title: 'ORANGE CAP',
-    icon: <Target className="w-5 h-5 text-[#FF8C00]" />,
-    glowClass: 'border-[#FF8C00]/50 shadow-[0_0_15px_rgba(255,140,0,0.2)]',
-    content:
-    <div className="flex items-center gap-4 h-full">
-          <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-[#FF8C00]">
-            <img
-          src={players[0].image}
-          alt="Top Batter"
-          className="w-full h-full object-cover" />
-        
-          </div>
-          <div>
-            <h4 className="font-bebas text-xl text-white">{players[0].name}</h4>
-            <p className="text-sm text-[#FF8C00] font-bold">
-              {players[0].stats.runs} Runs
-            </p>
-            <p className="text-xs text-gray-400">
-              SR: {players[0].stats.strikeRate}
-            </p>
-          </div>
-        </div>
-
-  }];
+  const orangeCap = players[0];
 
   return (
-    <section className="py-16 relative z-10 -mt-20">
+    <section className="py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {cards.map((card, i) =>
-          <motion.div
-            key={i}
-            initial={{
-              opacity: 0,
-              y: 20
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0
-            }}
-            viewport={{
-              once: true
-            }}
-            transition={{
-              delay: i * 0.1
-            }}
-            className={`glass-panel rounded-xl p-6 border border-white/10 hover:${card.glowClass} transition-all duration-300 group`}>
-            
-              <div className="flex items-center gap-2 mb-6 border-b border-white/10 pb-3">
-                {card.icon}
-                <h3 className="font-oswald text-sm tracking-widest text-gray-300 group-hover:text-white transition-colors">
-                  {card.title}
-                </h3>
+        
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 auto-rows-[minmax(180px,auto)]">
+          
+          {/* Card 1: MVP - Spans 8 cols */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="md:col-span-8 glass-panel p-8 md:p-10 rounded-3xl border border-white/10 hover:border-emerald/50 transition-all duration-500 group relative overflow-hidden flex flex-col justify-between shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald/10 blur-[80px] rounded-full group-hover:bg-emerald/20 transition-colors duration-500" />
+            <div className="relative z-10 flex justify-between items-start mb-8">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-emerald/20 flex items-center justify-center border border-emerald/30">
+                  <Star className="w-6 h-6 text-emerald" />
+                </div>
+                <h3 className="font-bebas text-2xl md:text-3xl tracking-widest text-white">MVP OF THE WEEK</h3>
               </div>
-              <div className="h-32">{card.content}</div>
-            </motion.div>
-          )}
+              <ArrowUpRight className="w-6 h-6 text-gray-500 group-hover:text-emerald transition-colors" />
+            </div>
+
+            {mvp && (
+              <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-end gap-6 text-center sm:text-left">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden border-2 border-emerald/50 shadow-[0_0_20px_rgba(0,255,102,0.2)]">
+                  <img src={mvp.image} alt={mvp.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-emerald font-oswald tracking-widest text-sm md:text-base mb-1">{teams.find((t) => t.id === mvp.teamId)?.name}</p>
+                  <h4 className="font-bebas text-5xl md:text-6xl text-white mb-4 drop-shadow-lg">{mvp.name}</h4>
+                  <div className="inline-flex items-center gap-2 bg-emerald/10 border border-emerald/30 text-emerald px-4 py-2 rounded-lg font-bebas text-xl md:text-2xl backdrop-blur-md">
+                    <Zap className="w-5 h-5" /> {mvp.mvpPoints} POINTS
+                  </div>
+                </div>
+              </div>
+            )}
+          </motion.div>
+
+          {/* Card 2: Orange Cap - Spans 4 cols */}
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="md:col-span-4 glass-panel p-8 md:p-10 rounded-3xl border border-white/10 hover:border-orangeGlow/50 transition-all duration-500 group relative overflow-hidden flex flex-col justify-between shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
+          >
+            <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-orangeGlow/10 blur-[60px] rounded-full group-hover:bg-orangeGlow/20 transition-colors duration-500" />
+            
+            <div className="relative z-10 flex justify-between items-start mb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-orangeGlow/20 flex items-center justify-center border border-orangeGlow/30">
+                  <Target className="w-5 h-5 text-orangeGlow" />
+                </div>
+                <h3 className="font-bebas text-2xl tracking-widest text-white">ORANGE CAP</h3>
+              </div>
+            </div>
+
+            {orangeCap && (
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-orangeGlow shadow-[0_0_20px_rgba(255,140,0,0.2)] mb-4">
+                  <img src={orangeCap.image} alt={orangeCap.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                </div>
+                <h4 className="font-bebas text-3xl md:text-4xl text-white mb-1 drop-shadow-md">{orangeCap.name}</h4>
+                <p className="text-4xl md:text-5xl font-bebas text-orangeGlow mb-2 drop-shadow-[0_0_10px_rgba(255,140,0,0.5)]">{orangeCap.stats.runs} RUNS</p>
+                <p className="text-sm font-oswald text-gray-400 tracking-wider">SR: {orangeCap.stats.strikeRate}</p>
+              </div>
+            )}
+          </motion.div>
+
+          {/* Card 3: Last Match Result - Spans 12 cols, overlapping visually */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="md:col-span-12 glass-panel p-8 md:p-12 rounded-3xl border border-white/10 hover:border-gold/30 transition-all duration-500 group relative overflow-hidden mt-0 md:-mt-10 z-20 shadow-[0_30px_60px_rgba(0,0,0,0.5)] bg-midnight/60"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-2xl bg-gold/5 blur-[100px] rounded-full group-hover:bg-gold/10 transition-colors duration-500" />
+            
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="flex flex-col items-center md:items-start gap-2">
+                <div className="flex items-center gap-3 bg-gold/10 border border-gold/20 px-4 py-2 rounded-full">
+                  <Trophy className="w-5 h-5 text-gold" />
+                  <span className="font-bebas text-xl text-gold tracking-widest">LAST MATCH RESULT</span>
+                </div>
+                <p className="font-oswald text-gray-400 text-sm tracking-widest pl-2">{lastMatch?.date}</p>
+              </div>
+
+              {lastMatch && (
+                <div className="flex-1 flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-16 w-full md:w-auto">
+                  <div className="text-center sm:text-right flex-1">
+                    <h4 className="font-bebas text-4xl md:text-5xl text-white mb-2">{teams.find((t) => t.id === lastMatch.team1Id)?.shortName}</h4>
+                    <p className="font-bebas text-3xl md:text-4xl text-gray-400">{lastMatch.score?.team1}</p>
+                  </div>
+                  
+                  <div className="hidden sm:block w-px h-24 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+                  <div className="sm:hidden w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                  
+                  <div className="text-center sm:text-left flex-1">
+                    <h4 className="font-bebas text-4xl md:text-5xl text-white mb-2">{teams.find((t) => t.id === lastMatch.team2Id)?.shortName}</h4>
+                    <p className="font-bebas text-3xl md:text-4xl text-gray-400">{lastMatch.score?.team2}</p>
+                  </div>
+                </div>
+              )}
+
+              <div className="text-center md:text-right shrink-0">
+                <Link to="/matches" className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-8 py-4 rounded-xl font-bebas text-xl text-white transition-all hover:scale-105 border border-white/10">
+                  VIEW ALL FIXTURES
+                  <ArrowUpRight className="w-6 h-6" />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }

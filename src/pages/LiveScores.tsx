@@ -27,7 +27,7 @@ export function LiveScores() {
   );
   const recentBalls = ['1', '0', '4', 'W', '6', '2'];
   return (
-    <div className="min-h-screen pt-8 pb-24 relative">
+    <div className="min-h-screen pt-32 md:pt-40 pb-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Live Indicator */}
         <div className="flex items-center justify-center gap-2 mb-6">
