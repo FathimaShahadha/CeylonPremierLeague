@@ -30,7 +30,7 @@ export function Players() {
                 opacity: 1,
                 x: 0
               }}
-              className="text-5xl md:text-7xl font-bebas text-white mb-2">
+              className="text-5xl md:text-7xl font-bebas text-slate mb-2">
               
               PLAYER <span className="text-emerald">DIRECTORY</span>
             </motion.h1>
@@ -44,7 +44,7 @@ export function Players() {
               transition={{
                 delay: 0.2
               }}
-              className="text-gray-400 font-oswald tracking-[0.2em] uppercase">
+              className="text-darkgray font-oswald tracking-[0.2em] uppercase">
               
               The stars of Ceylon Premier League
             </motion.p>
@@ -65,21 +65,21 @@ export function Players() {
             className="w-full md:w-auto flex flex-col sm:flex-row gap-4">
             
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-midgray" />
               <input
                 type="text"
                 placeholder="Search players..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full sm:w-64 bg-white/5 border border-white/10 rounded-lg py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-emerald transition-colors text-white" />
+                className="w-full sm:w-64 bg-white border border-lightgray rounded-lg py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-emerald transition-colors text-slate shadow-sm" />
               
             </div>
-            <div className="flex bg-white/5 rounded-lg p-1 border border-white/10 overflow-x-auto hide-scrollbar">
+            <div className="flex bg-white rounded-lg p-1 border border-lightgray overflow-x-auto hide-scrollbar shadow-sm">
               {roles.map((role) =>
               <button
                 key={role}
                 onClick={() => setActiveRole(role)}
-                className={`px-4 py-1.5 rounded-md font-oswald text-xs tracking-wider whitespace-nowrap transition-all ${activeRole === role ? 'bg-emerald text-midnight shadow-[0_0_15px_rgba(0,255,102,0.5)]' : 'text-gray-400 hover:text-white'}`}>
+                className={`px-4 py-1.5 rounded-md font-oswald text-xs tracking-wider whitespace-nowrap transition-all ${activeRole === role ? 'bg-emerald text-white shadow-[0_0_15px_rgba(0,255,102,0.5)]' : 'text-darkgray hover:text-slate'}`}>
                 
                   {role}
                 </button>
@@ -107,31 +107,31 @@ export function Players() {
                 }}>
                 
                 <Link to={`/players/${player.id}`} className="block group">
-                  <div className="glass-panel rounded-xl overflow-hidden border border-white/10 hover:border-emerald/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,255,102,0.2)]">
-                    <div className="relative h-48 bg-deepnight overflow-hidden">
+                  <div className="glass-panel rounded-xl overflow-hidden border border-lightgray hover:border-emerald/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,255,102,0.2)]">
+                    <div className="relative h-48 bg-cream overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-t from-midnight to-transparent z-10" />
                       <img
                         src={player.image}
                         alt={player.name}
                         className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700" />
                       
-                      <div className="absolute top-2 right-2 z-20 bg-midnight/80 backdrop-blur-sm border border-white/10 px-2 py-1 rounded flex items-center gap-1">
+                      <div className="absolute top-2 right-2 z-20 bg-white/80 backdrop-blur-sm border border-lightgray px-2 py-1 rounded flex items-center gap-1">
                         <Star className="w-3 h-3 text-gold fill-gold" />
-                        <span className="text-[10px] font-bold text-white">
+                        <span className="text-[10px] font-bold text-slate">
                           {player.mvpPoints}
                         </span>
                       </div>
-                      <div className="absolute bottom-0 right-2 z-0 font-bebas text-8xl text-white/5 leading-none translate-y-4">
+                      <div className="absolute bottom-0 right-2 z-0 font-bebas text-8xl text-slate/5 leading-none translate-y-4">
                         {player.jerseyNumber}
                       </div>
                     </div>
 
                     <div className="p-5 relative z-20 -mt-6">
                       <div className="flex justify-between items-end mb-2">
-                        <h3 className="font-bebas text-2xl text-white group-hover:text-emerald transition-colors">
+                        <h3 className="font-bebas text-2xl text-slate group-hover:text-emerald transition-colors">
                           {player.name}
                         </h3>
-                        <span className="font-bebas text-xl text-gray-500">
+                        <span className="font-bebas text-xl text-midgray">
                           #{player.jerseyNumber}
                         </span>
                       </div>
@@ -143,22 +143,22 @@ export function Players() {
                             backgroundColor: team?.color
                           }} />
                         
-                        <span className="text-xs font-oswald text-gray-400 tracking-wider uppercase">
+                        <span className="text-xs font-oswald text-darkgray tracking-wider uppercase">
                           {team?.name}
                         </span>
                       </div>
 
                       <div className="grid grid-cols-2 gap-2">
-                        <div className="bg-white/5 rounded p-2 text-center border border-white/5">
-                          <div className="text-[10px] text-gray-500 uppercase font-bold">
+                        <div className="bg-slate/5 rounded p-2 text-center border border-lightgray">
+                          <div className="text-[10px] text-midgray uppercase font-bold">
                             Role
                           </div>
-                          <div className="text-xs text-white font-oswald">
+                          <div className="text-xs text-slate font-oswald">
                             {player.role}
                           </div>
                         </div>
-                        <div className="bg-white/5 rounded p-2 text-center border border-white/5">
-                          <div className="text-[10px] text-gray-500 uppercase font-bold">
+                        <div className="bg-slate/5 rounded p-2 text-center border border-lightgray">
+                          <div className="text-[10px] text-midgray uppercase font-bold">
                             {player.role === 'Bowler' ? 'Wickets' : 'Runs'}
                           </div>
                           <div className="text-xs text-emerald font-bold">
@@ -178,7 +178,7 @@ export function Players() {
 
         {filteredPlayers.length === 0 &&
         <div className="text-center py-20">
-            <p className="text-gray-500 font-oswald tracking-widest text-lg">
+            <p className="text-midgray font-oswald tracking-widest text-lg">
               No players found matching your criteria.
             </p>
           </div>

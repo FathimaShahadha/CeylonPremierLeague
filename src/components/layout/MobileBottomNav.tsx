@@ -32,7 +32,7 @@ export function MobileBottomNav() {
   }];
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 glass-panel border-t border-white/10 z-50 pb-safe">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 glass-panel border-t border-lightgray z-50 pb-safe">
       <div className="flex justify-around items-center h-16 px-2">
         {navItems.map((item) => {
           const isActive = location.pathname === item.path;
@@ -45,11 +45,11 @@ export function MobileBottomNav() {
                 className="relative -top-5 flex flex-col items-center justify-center">
                 
                 <div
-                  className={`w-14 h-14 rounded-full flex items-center justify-center ${isActive ? 'bg-emerald neon-glow-emerald' : 'bg-orangeGlow neon-glow-orange'} text-midnight transition-all duration-300`}>
+                  className={`w-14 h-14 rounded-full flex items-center justify-center ${isActive ? 'bg-emerald shadow-lg shadow-emerald/30' : 'bg-orangeGlow shadow-lg shadow-orangeGlow/30'} text-white transition-all duration-300`}>
                   
                   <Icon className="w-7 h-7 text-white" fill="currentColor" />
                 </div>
-                <span className="text-[10px] font-oswald tracking-wider mt-1 text-white drop-shadow-md">
+                <span className="text-[10px] font-oswald tracking-wider mt-1 text-slate font-medium">
                   {item.label}
                 </span>
               </Link>);
@@ -59,10 +59,10 @@ export function MobileBottomNav() {
             <Link
               key={item.path}
               to={item.path}
-              className={`flex flex-col items-center justify-center w-16 h-full transition-colors ${isActive ? 'text-emerald' : 'text-gray-400 hover:text-gray-200'}`}>
+              className={`flex flex-col items-center justify-center w-16 h-full transition-colors ${isActive ? 'text-emerald font-bold' : 'text-slate-600 hover:text-slate'}`}>
               
               <Icon
-                className={`w-5 h-5 mb-1 ${isActive ? 'drop-shadow-[0_0_5px_rgba(0,255,102,0.8)]' : ''}`} />
+                className={`w-5 h-5 mb-1 ${isActive ? '' : ''}`} />
               
               <span className="text-[10px] font-oswald tracking-wider">
                 {item.label}

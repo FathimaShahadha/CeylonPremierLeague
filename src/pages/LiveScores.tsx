@@ -55,7 +55,7 @@ export function LiveScores() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-electric/10 blur-[80px] pointer-events-none" />
 
           <div className="text-center mb-8">
-            <p className="text-xs font-oswald text-gray-400 tracking-widest uppercase mb-2">
+            <p className="text-xs font-oswald text-darkgray tracking-widest uppercase mb-2">
               {liveMatch.venue}
             </p>
             <p className="text-sm font-oswald text-electric tracking-wider">
@@ -67,18 +67,18 @@ export function LiveScores() {
             {/* Team 1 */}
             <div className="flex items-center gap-6 flex-1 justify-end">
               <div className="text-right">
-                <h2 className="font-bebas text-3xl md:text-4xl text-white">
+                <h2 className="font-bebas text-3xl md:text-4xl text-slate">
                   {team1?.shortName}
                 </h2>
                 <div className="font-bebas text-5xl md:text-7xl text-electric leading-none my-2">
                   {liveMatch.score?.team1.split(' ')[0]}
                 </div>
-                <div className="font-oswald text-sm text-gray-400 tracking-wider">
+                <div className="font-oswald text-sm text-darkgray tracking-wider">
                   Overs: {liveMatch.score?.team1.match(/\((.*?)\)/)?.[1]}
                 </div>
               </div>
               <div
-                className="w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border-4 bg-deepnight shrink-0"
+                className="w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border-4 bg-cream shrink-0"
                 style={{
                   borderColor: team1?.color
                 }}>
@@ -94,18 +94,18 @@ export function LiveScores() {
             {/* VS / RR */}
             <div className="flex flex-col items-center justify-center px-8 shrink-0">
               <div className="font-bebas text-2xl text-gray-600 mb-4">VS</div>
-              <div className="bg-white/5 border border-white/10 rounded-lg p-3 text-center w-full min-w-[120px]">
-                <div className="text-[10px] font-oswald text-gray-400 uppercase tracking-widest mb-1">
+              <div className="bg-slate/5 border border-lightgray rounded-lg p-3 text-center w-full min-w-[120px]">
+                <div className="text-[10px] font-oswald text-darkgray uppercase tracking-widest mb-1">
                   CRR
                 </div>
-                <div className="font-bebas text-2xl text-white">13.6</div>
+                <div className="font-bebas text-2xl text-slate">13.6</div>
               </div>
             </div>
 
             {/* Team 2 */}
             <div className="flex items-center gap-6 flex-1 justify-start">
               <div
-                className="w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border-4 bg-deepnight shrink-0"
+                className="w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border-4 bg-cream shrink-0"
                 style={{
                   borderColor: team2?.color
                 }}>
@@ -117,13 +117,13 @@ export function LiveScores() {
                 
               </div>
               <div className="text-left">
-                <h2 className="font-bebas text-3xl md:text-4xl text-white">
+                <h2 className="font-bebas text-3xl md:text-4xl text-slate">
                   {team2?.shortName}
                 </h2>
-                <div className="font-bebas text-5xl md:text-7xl text-gray-500 leading-none my-2">
+                <div className="font-bebas text-5xl md:text-7xl text-midgray leading-none my-2">
                   YTB
                 </div>
-                <div className="font-oswald text-sm text-gray-400 tracking-wider">
+                <div className="font-oswald text-sm text-darkgray tracking-wider">
                   Yet to bat
                 </div>
               </div>
@@ -131,16 +131,16 @@ export function LiveScores() {
           </div>
 
           {/* Recent Balls Strip */}
-          <div className="mt-10 pt-6 border-t border-white/10">
+          <div className="mt-10 pt-6 border-t border-lightgray">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <span className="font-oswald text-sm text-gray-400 uppercase tracking-widest">
+              <span className="font-oswald text-sm text-darkgray uppercase tracking-widest">
                 Recent Balls
               </span>
               <div className="flex gap-2">
                 {recentBalls.map((ball, i) =>
                 <div
                   key={i}
-                  className={`w-10 h-10 rounded-full flex items-center justify-center font-bebas text-xl ${ball === 'W' ? 'bg-red-500 text-white shadow-[0_0_10px_rgba(239,68,68,0.5)]' : ball === '6' ? 'bg-electric text-midnight shadow-[0_0_10px_rgba(0,194,255,0.5)]' : ball === '4' ? 'bg-gold text-midnight shadow-[0_0_10px_rgba(255,213,74,0.5)]' : 'bg-white/10 text-white border border-white/20'}`}>
+                  className={`w-10 h-10 rounded-full flex items-center justify-center font-bebas text-xl ${ball === 'W' ? 'bg-red-500 text-white shadow-[0_0_10px_rgba(239,68,68,0.3)]' : ball === '6' ? 'bg-electric text-white shadow-[0_0_10px_rgba(0,194,255,0.3)]' : ball === '4' ? 'bg-gold text-white shadow-[0_0_10px_rgba(255,213,74,0.3)]' : 'bg-slate/5 text-slate border border-lightgray'}`}>
                   
                     {ball}
                   </div>
@@ -154,54 +154,54 @@ export function LiveScores() {
           {/* Left Col: Stats & Worm */}
           <div className="lg:col-span-2 space-y-8">
             {/* Current Batters/Bowler */}
-            <div className="glass-panel rounded-2xl p-6 border border-white/10">
+            <div className="glass-panel rounded-2xl p-6 border border-lightgray">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="font-oswald text-xs text-gray-500 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">
+                  <h3 className="font-oswald text-xs text-midgray uppercase tracking-widest mb-4 border-b border-lightgray pb-2">
                     Batters
                   </h3>
                   <div className="space-y-3">
-                    <div className="flex justify-between items-center bg-white/5 p-3 rounded-lg border border-electric/30">
+                    <div className="flex justify-between items-center bg-slate/5 p-3 rounded-lg border border-electric/30">
                       <div className="flex items-center gap-2">
                         <span className="text-electric">▶</span>
-                        <span className="font-bebas text-xl text-white">
+                        <span className="font-bebas text-xl text-slate">
                           Rohit S.
                         </span>
                       </div>
                       <div className="font-bebas text-xl">
-                        <span className="text-white">45</span>
-                        <span className="text-gray-500 text-lg"> (22)</span>
+                        <span className="text-slate">45</span>
+                        <span className="text-midgray text-lg"> (22)</span>
                       </div>
                     </div>
-                    <div className="flex justify-between items-center bg-white/5 p-3 rounded-lg border border-white/5">
+                    <div className="flex justify-between items-center bg-slate/5 p-3 rounded-lg border border-lightgray">
                       <div className="flex items-center gap-2">
                         <span className="text-transparent">▶</span>
-                        <span className="font-bebas text-xl text-white">
+                        <span className="font-bebas text-xl text-slate">
                           Suryakumar Y.
                         </span>
                       </div>
                       <div className="font-bebas text-xl">
-                        <span className="text-white">28</span>
-                        <span className="text-gray-500 text-lg"> (12)</span>
+                        <span className="text-slate">28</span>
+                        <span className="text-midgray text-lg"> (12)</span>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-oswald text-xs text-gray-500 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">
+                  <h3 className="font-oswald text-xs text-midgray uppercase tracking-widest mb-4 border-b border-lightgray pb-2">
                     Bowler
                   </h3>
-                  <div className="bg-white/5 p-3 rounded-lg border border-white/5">
+                  <div className="bg-slate/5 p-3 rounded-lg border border-lightgray">
                     <div className="flex justify-between items-center mb-2">
-                      <span className="font-bebas text-xl text-white">
+                      <span className="font-bebas text-xl text-slate">
                         Kagiso R.
                       </span>
                       <div className="font-bebas text-xl">
-                        <span className="text-white">1-24</span>
-                        <span className="text-gray-500 text-lg"> (1.2)</span>
+                        <span className="text-slate">1-24</span>
+                        <span className="text-midgray text-lg"> (1.2)</span>
                       </div>
                     </div>
-                    <div className="text-xs font-oswald text-gray-400">
+                    <div className="text-xs font-oswald text-darkgray">
                       Economy: 18.0
                     </div>
                   </div>
@@ -210,7 +210,7 @@ export function LiveScores() {
             </div>
 
             {/* Worm Graph */}
-            <div className="glass-panel rounded-2xl p-6 border border-white/10">
+            <div className="glass-panel rounded-2xl p-6 border border-lightgray">
               <h3 className="font-bebas text-2xl mb-6 flex items-center gap-2">
                 <Activity className="text-electric w-5 h-5" /> INNINGS
                 PROGRESSION
@@ -240,29 +240,32 @@ export function LiveScores() {
                     </defs>
                     <CartesianGrid
                       strokeDasharray="3 3"
-                      stroke="rgba(255,255,255,0.05)"
+                      stroke="rgba(0,0,0,0.05)"
                       vertical={false} />
                     
                     <XAxis
                       dataKey="over"
-                      stroke="rgba(255,255,255,0.3)"
+                      stroke="rgba(0,0,0,0.3)"
                       tick={{
                         fontFamily: 'Oswald',
-                        fontSize: 12
+                        fontSize: 12,
+                        fill: '#64748b'
                       }} />
                     
                     <YAxis
-                      stroke="rgba(255,255,255,0.3)"
+                      stroke="rgba(0,0,0,0.3)"
                       tick={{
                         fontFamily: 'Oswald',
-                        fontSize: 12
+                        fontSize: 12,
+                        fill: '#64748b'
                       }} />
                     
                     <Tooltip
                       contentStyle={{
-                        backgroundColor: '#0B0F1A',
-                        border: '1px solid rgba(0,194,255,0.3)',
-                        borderRadius: '8px'
+                        backgroundColor: '#FFFFFF',
+                        border: '1px solid rgba(0,0,0,0.1)',
+                        borderRadius: '8px',
+                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                       }}
                       itemStyle={{
                         fontFamily: 'Oswald',
@@ -284,7 +287,7 @@ export function LiveScores() {
           </div>
 
           {/* Right Col: Commentary */}
-          <div className="glass-panel rounded-2xl p-6 border border-white/10 h-[600px] flex flex-col">
+          <div className="glass-panel rounded-2xl p-6 border border-lightgray h-[600px] flex flex-col">
             <h3 className="font-bebas text-2xl mb-6 flex items-center gap-2 shrink-0">
               <Radio className="text-neonpurple w-5 h-5" /> LIVE COMMENTARY
             </h3>
@@ -324,14 +327,14 @@ export function LiveScores() {
               map((comm, i) =>
               <div
                 key={i}
-                className={`flex gap-4 p-3 rounded-lg ${comm.type === 'boundary' ? 'bg-electric/10 border border-electric/20' : comm.type === 'wicket' ? 'bg-red-500/10 border border-red-500/20' : comm.type === 'over' ? 'bg-white/5 border border-white/10' : ''}`}>
+                className={`flex gap-4 p-3 rounded-lg ${comm.type === 'boundary' ? 'bg-electric/10 border border-electric/20' : comm.type === 'wicket' ? 'bg-red-500/10 border border-red-500/20' : comm.type === 'over' ? 'bg-slate/5 border border-lightgray' : ''}`}>
                 
                   <div
-                  className={`font-bebas text-xl shrink-0 ${comm.type === 'boundary' ? 'text-electric' : comm.type === 'wicket' ? 'text-red-500' : 'text-gray-400'}`}>
+                  className={`font-bebas text-xl shrink-0 ${comm.type === 'boundary' ? 'text-electric' : comm.type === 'wicket' ? 'text-red-500' : 'text-darkgray'}`}>
                   
                     {comm.over}
                   </div>
-                  <div className="text-sm text-gray-300 leading-relaxed">
+                  <div className="text-sm text-darkgray leading-relaxed">
                     {comm.text}
                   </div>
                 </div>

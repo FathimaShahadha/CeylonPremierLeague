@@ -11,9 +11,9 @@ export function StatsCounters() {
   ];
 
   return (
-    <section className="py-32 relative border-y border-white/5 overflow-hidden">
-      <div className="absolute inset-0 bg-charcoal" />
-      <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+    <section className="py-32 relative border-y border-lightgray overflow-hidden">
+      <div className="absolute inset-0 bg-softwhite" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-30" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 min-h-[600px] flex flex-col md:block items-center justify-center">
         
@@ -26,7 +26,7 @@ export function StatsCounters() {
           transition={{ duration: 1 }}
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-emerald/20 blur-[120px] rounded-full pointer-events-none" />
-          <h2 className="font-bebas text-7xl md:text-[180px] leading-none text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] mb-12 md:mb-0 relative z-10 pt-10 md:pt-0">
+          <h2 className="font-bebas text-7xl md:text-[180px] leading-none text-slate drop-shadow-sm mb-12 md:mb-0 relative z-10 pt-10 md:pt-0">
             TOURNAMENT<br/>
             <span className="text-emerald">STATS</span>
           </h2>
@@ -40,14 +40,14 @@ export function StatsCounters() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: stat.delay }}
-            className="absolute hidden md:flex flex-col items-center justify-center glass-panel p-6 rounded-2xl border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-emerald/50 hover:shadow-[0_0_30px_rgba(0,255,102,0.3)] hover:scale-110 transition-all duration-300 z-30 bg-midnight/80 backdrop-blur-xl"
+            className="absolute hidden md:flex flex-col items-center justify-center glass-panel p-6 rounded-2xl border border-lightgray shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:border-emerald/50 hover:shadow-[0_0_30px_rgba(0,160,64,0.15)] hover:scale-110 transition-all duration-300 z-30 bg-white/80 backdrop-blur-xl"
             style={{ top: stat.top, left: stat.left }}
           >
-            <div className="text-6xl lg:text-7xl font-bebas text-white mb-1 drop-shadow-lg">
+            <div className="text-6xl lg:text-7xl font-bebas text-slate mb-1 drop-shadow-sm">
               {stat.value}
               <span className="text-emerald">{stat.suffix}</span>
             </div>
-            <div className="font-oswald text-sm tracking-[0.2em] text-gray-400 uppercase">
+            <div className="font-oswald text-sm tracking-[0.2em] text-darkgray uppercase">
               {stat.label}
             </div>
           </motion.div>
@@ -56,12 +56,12 @@ export function StatsCounters() {
         {/* Mobile Grid Fallback */}
         <div className="relative z-30 flex md:hidden flex-wrap items-center justify-center gap-4 w-full">
            {stats.map((stat, i) => (
-             <div key={i} className="glass-panel p-6 rounded-xl border border-white/10 w-[45%] text-center shadow-lg bg-midnight/80 backdrop-blur-md">
-               <div className="text-4xl font-bebas text-white mb-1">
+             <div key={i} className="glass-panel p-6 rounded-xl border border-lightgray w-[45%] text-center shadow-sm bg-white/80 backdrop-blur-md">
+               <div className="text-4xl font-bebas text-slate mb-1">
                  {stat.value}
                  <span className="text-emerald">{stat.suffix}</span>
                </div>
-               <div className="font-oswald text-xs tracking-widest text-gray-400 uppercase">
+               <div className="font-oswald text-xs tracking-widest text-darkgray uppercase">
                  {stat.label}
                </div>
              </div>

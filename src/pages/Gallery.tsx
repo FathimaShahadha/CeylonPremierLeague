@@ -37,7 +37,7 @@ export function Gallery() {
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-8xl font-bebas text-white mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+            className="text-6xl md:text-8xl font-bebas text-slate mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
           >
             PHOTO <span className="text-emerald drop-shadow-[0_0_20px_rgba(0,255,102,0.4)]">GALLERY</span>
           </motion.h1>
@@ -46,15 +46,15 @@ export function Gallery() {
 
         {/* Filters */}
         <div className="flex justify-center mb-16 overflow-x-auto hide-scrollbar">
-          <div className="flex bg-midnight/50 backdrop-blur-md rounded-2xl p-2 border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+          <div className="flex bg-white/50 backdrop-blur-md rounded-2xl p-2 border border-lightgray shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={`px-8 py-3 rounded-xl font-oswald text-base tracking-wider transition-all duration-300 whitespace-nowrap ${
                   activeCategory === cat
-                    ? 'bg-emerald text-midnight shadow-[0_0_20px_rgba(0,255,102,0.5)] scale-105'
-                    : 'text-gray-400 hover:text-white hover:bg-white/5'
+                    ? 'bg-emerald text-white shadow-[0_0_20px_rgba(0,255,102,0.5)] scale-105'
+                    : 'text-darkgray hover:text-slate hover:bg-slate/5'
                 }`}
               >
                 {cat}
@@ -71,7 +71,7 @@ export function Gallery() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
-              className="break-inside-avoid relative group cursor-pointer rounded-2xl overflow-hidden border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(0,255,102,0.2)] hover:border-emerald/50 transition-all duration-500"
+              className="break-inside-avoid relative group cursor-pointer rounded-2xl overflow-hidden border border-lightgray shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(0,255,102,0.2)] hover:border-emerald/50 transition-all duration-500"
               onClick={() => setSelectedImage(img.url)}
             >
               <img
@@ -79,8 +79,8 @@ export function Gallery() {
                 alt={img.title}
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                <Maximize2 className="absolute top-6 right-6 w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-all delay-100 group-hover:scale-110 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                <Maximize2 className="absolute top-6 right-6 w-8 h-8 text-slate opacity-0 group-hover:opacity-100 transition-all delay-100 group-hover:scale-110 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
                 <span className="text-sm font-oswald text-emerald tracking-widest uppercase mb-2 block border-l-2 border-emerald pl-3">
                   {img.category}
                 </span>
@@ -97,11 +97,11 @@ export function Gallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] flex items-center justify-center bg-midnight/95 backdrop-blur-xl p-4"
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-white/95 backdrop-blur-xl p-4"
             onClick={() => setSelectedImage(null)}
           >
             <button
-              className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors hover:rotate-90 duration-300"
+              className="absolute top-8 right-8 text-slate/50 hover:text-slate transition-colors hover:rotate-90 duration-300"
               onClick={() => setSelectedImage(null)}
             >
               <X className="w-12 h-12" />
@@ -113,7 +113,7 @@ export function Gallery() {
               transition={{ type: "spring", bounce: 0.4 }}
               src={selectedImage}
               alt="Enlarged view"
-              className="max-w-full max-h-[90vh] object-contain rounded-2xl shadow-[0_0_100px_rgba(0,0,0,0.8)] border border-white/10"
+              className="max-w-full max-h-[90vh] object-contain rounded-2xl shadow-[0_0_100px_rgba(0,0,0,0.8)] border border-lightgray"
               onClick={(e) => e.stopPropagation()}
             />
           </motion.div>

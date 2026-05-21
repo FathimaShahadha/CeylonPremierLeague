@@ -20,7 +20,7 @@ export function Teams() {
               opacity: 1,
               y: 0
             }}
-            className="text-5xl md:text-7xl font-bebas text-white mb-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+            className="text-5xl md:text-7xl font-bebas text-slate mb-4 drop-shadow-sm">
             
             THE <span className="text-electric">FRANCHISES</span>
           </motion.h1>
@@ -34,7 +34,7 @@ export function Teams() {
             transition={{
               delay: 0.2
             }}
-            className="text-gray-400 font-oswald tracking-[0.2em] uppercase">
+            className="text-darkgray font-oswald tracking-[0.2em] uppercase">
             
             8 Teams. 1 Trophy. Ultimate Glory.
           </motion.p>
@@ -57,7 +57,7 @@ export function Teams() {
             }}>
             
               <Link to={`/teams/${team.id}`} className="block group">
-                <div className="glass-panel rounded-2xl overflow-hidden relative transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/10 hover:border-white/30">
+                <div className="glass-panel rounded-2xl overflow-hidden relative transition-all duration-500 hover:-translate-y-2 hover:shadow-xl border border-lightgray hover:border-lightgray">
                   {/* Color Band */}
                   <div
                   className="h-2 w-full"
@@ -77,7 +77,7 @@ export function Teams() {
                   <div className="p-6 relative z-10">
                     <div className="flex justify-between items-start mb-6">
                       <div
-                      className="w-20 h-20 rounded-full overflow-hidden border-2 bg-deepnight"
+                      className="w-20 h-20 rounded-full overflow-hidden border-2 bg-cream"
                       style={{
                         borderColor: team.color
                       }}>
@@ -89,52 +89,52 @@ export function Teams() {
                       
                       </div>
                       <div className="text-right">
-                        <span className="font-bebas text-3xl text-white/20 group-hover:text-white/40 transition-colors">
+                        <span className="font-bebas text-3xl text-slate/20 group-hover:text-slate/40 transition-colors">
                           {team.shortName}
                         </span>
                       </div>
                     </div>
 
-                    <h3 className="font-bebas text-3xl text-white mb-1 group-hover:text-electric transition-colors">
+                    <h3 className="font-bebas text-3xl text-slate mb-1 group-hover:text-electric transition-colors">
                       {team.name}
                     </h3>
-                    <p className="text-xs text-gray-400 font-oswald tracking-wider mb-6">
+                    <p className="text-xs text-darkgray font-oswald tracking-wider mb-6">
                       Owner: {team.owner}
                     </p>
 
                     <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="bg-white/5 rounded-lg p-3 border border-white/5">
-                        <div className="text-[10px] text-gray-500 uppercase font-bold mb-1 flex items-center gap-1">
+                      <div className="bg-slate/5 rounded-lg p-3 border border-lightgray">
+                        <div className="text-[10px] text-midgray uppercase font-bold mb-1 flex items-center gap-1">
                           <Shield className="w-3 h-3" /> Captain
                         </div>
-                        <div className="font-oswald text-sm text-white">
+                        <div className="font-oswald text-sm text-slate">
                           {team.captain}
                         </div>
                       </div>
-                      <div className="bg-white/5 rounded-lg p-3 border border-white/5">
-                        <div className="text-[10px] text-gray-500 uppercase font-bold mb-1 flex items-center gap-1">
+                      <div className="bg-slate/5 rounded-lg p-3 border border-lightgray">
+                        <div className="text-[10px] text-midgray uppercase font-bold mb-1 flex items-center gap-1">
                           <TrendingUp className="w-3 h-3" /> W/L Record
                         </div>
-                        <div className="font-oswald text-sm text-white">
-                          <span className="text-green-400">
+                        <div className="font-oswald text-sm text-slate">
+                          <span className="text-green-600">
                             {team.stats.won}
                           </span>{' '}
                           -{' '}
-                          <span className="text-red-400">
+                          <span className="text-red-600">
                             {team.stats.lost}
                           </span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex justify-between items-center pt-4 border-t border-white/10">
-                      <div className="text-xs font-oswald text-gray-400">
+                    <div className="flex justify-between items-center pt-4 border-t border-lightgray">
+                      <div className="text-xs font-oswald text-darkgray">
                         NRR:{' '}
                         <span
                         className={
                         team.stats.nrr > 0 ?
-                        'text-green-400' :
-                        'text-red-400'
+                        'text-green-600' :
+                        'text-red-600'
                         }>
                         
                           {team.stats.nrr > 0 ? '+' : ''}

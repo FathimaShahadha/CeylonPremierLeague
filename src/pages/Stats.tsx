@@ -57,7 +57,7 @@ export function Stats() {
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-bebas text-white mb-2"
+            className="text-5xl md:text-7xl font-bebas text-slate mb-2"
           >
             TOURNAMENT <span className="text-electric">ANALYTICS</span>
           </motion.h1>
@@ -65,7 +65,7 @@ export function Stats() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-gray-400 font-oswald tracking-[0.2em] uppercase"
+            className="text-darkgray font-oswald tracking-[0.2em] uppercase"
           >
             Real-time Performance Dashboard
           </motion.p>
@@ -89,9 +89,9 @@ export function Stats() {
                 className={`glass-panel p-6 rounded-2xl border ${kpi.borderColor} ${kpi.bg} shadow-lg relative overflow-hidden group`}
               >
                 <Icon className={`absolute -right-4 -bottom-4 w-24 h-24 ${kpi.color} opacity-10 group-hover:scale-110 transition-transform`} />
-                <h3 className="font-oswald text-xs text-gray-400 tracking-widest uppercase mb-2">{kpi.title}</h3>
+                <h3 className="font-oswald text-xs text-darkgray tracking-widest uppercase mb-2">{kpi.title}</h3>
                 <div className={`font-bebas text-3xl md:text-4xl ${kpi.color} mb-1 truncate`}>{kpi.value || 'N/A'}</div>
-                <div className="font-oswald text-sm text-gray-300 tracking-wider">{kpi.sub}</div>
+                <div className="font-oswald text-sm text-darkgray tracking-wider">{kpi.sub}</div>
               </motion.div>
             );
           })}
@@ -101,23 +101,23 @@ export function Stats() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Orange Cap Leaderboard */}
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="glass-panel p-6 rounded-2xl border border-gold/20 shadow-[0_0_30px_rgba(255,213,74,0.05)]">
-            <h2 className="font-bebas text-3xl text-white mb-6 flex items-center gap-3">
+            <h2 className="font-bebas text-3xl text-slate mb-6 flex items-center gap-3">
               <Trophy className="text-gold w-6 h-6" /> ORANGE CAP RACE
             </h2>
             <div className="space-y-4">
               {sortedBatters.slice(0, 5).map((player, idx) => (
-                <div key={idx} className="flex items-center gap-4 bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bebas text-xl shrink-0 ${idx === 0 ? 'bg-gold text-midnight shadow-[0_0_10px_rgba(255,213,74,0.5)]' : 'bg-white/10 text-gray-400'}`}>
+                <div key={idx} className="flex items-center gap-4 bg-slate/5 p-3 rounded-xl border border-lightgray hover:bg-slate/10 transition-colors">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bebas text-xl shrink-0 ${idx === 0 ? 'bg-gold text-white shadow-[0_0_10px_rgba(255,213,74,0.5)]' : 'bg-lightgray text-slate'}`}>
                     {idx + 1}
                   </div>
-                  <img src={player.image} alt={player.name} className="w-12 h-12 rounded-full object-cover border-2 border-white/10" />
+                  <img src={player.image} alt={player.name} className="w-12 h-12 rounded-full object-cover border-2 border-lightgray" />
                   <div className="flex-grow">
-                    <div className="font-bebas text-xl text-white">{player.name}</div>
-                    <div className="text-xs font-oswald text-gray-400 uppercase">{teams.find(t => t.id === player.teamId)?.shortName}</div>
+                    <div className="font-bebas text-xl text-slate">{player.name}</div>
+                    <div className="text-xs font-oswald text-darkgray uppercase">{teams.find(t => t.id === player.teamId)?.shortName}</div>
                   </div>
                   <div className="text-right">
                     <div className="font-bebas text-2xl text-gold">{player.stats.runs}</div>
-                    <div className="text-[10px] font-oswald text-gray-500 uppercase tracking-widest">Runs</div>
+                    <div className="text-[10px] font-oswald text-midgray uppercase tracking-widest">Runs</div>
                   </div>
                 </div>
               ))}
@@ -126,23 +126,23 @@ export function Stats() {
 
           {/* Purple Cap Leaderboard */}
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="glass-panel p-6 rounded-2xl border border-neonpurple/20 shadow-[0_0_30px_rgba(176,38,255,0.05)]">
-            <h2 className="font-bebas text-3xl text-white mb-6 flex items-center gap-3">
+            <h2 className="font-bebas text-3xl text-slate mb-6 flex items-center gap-3">
               <Medal className="text-neonpurple w-6 h-6" /> PURPLE CAP RACE
             </h2>
             <div className="space-y-4">
               {sortedBowlers.slice(0, 5).map((player, idx) => (
-                <div key={idx} className="flex items-center gap-4 bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bebas text-xl shrink-0 ${idx === 0 ? 'bg-neonpurple text-white shadow-[0_0_10px_rgba(176,38,255,0.5)]' : 'bg-white/10 text-gray-400'}`}>
+                <div key={idx} className="flex items-center gap-4 bg-slate/5 p-3 rounded-xl border border-lightgray hover:bg-slate/10 transition-colors">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bebas text-xl shrink-0 ${idx === 0 ? 'bg-neonpurple text-white shadow-[0_0_10px_rgba(176,38,255,0.5)]' : 'bg-lightgray text-slate'}`}>
                     {idx + 1}
                   </div>
-                  <img src={player.image} alt={player.name} className="w-12 h-12 rounded-full object-cover border-2 border-white/10" />
+                  <img src={player.image} alt={player.name} className="w-12 h-12 rounded-full object-cover border-2 border-lightgray" />
                   <div className="flex-grow">
-                    <div className="font-bebas text-xl text-white">{player.name}</div>
-                    <div className="text-xs font-oswald text-gray-400 uppercase">{teams.find(t => t.id === player.teamId)?.shortName}</div>
+                    <div className="font-bebas text-xl text-slate">{player.name}</div>
+                    <div className="text-xs font-oswald text-darkgray uppercase">{teams.find(t => t.id === player.teamId)?.shortName}</div>
                   </div>
                   <div className="text-right">
                     <div className="font-bebas text-2xl text-neonpurple">{player.stats.wickets}</div>
-                    <div className="text-[10px] font-oswald text-gray-500 uppercase tracking-widest">Wickets</div>
+                    <div className="text-[10px] font-oswald text-midgray uppercase tracking-widest">Wickets</div>
                   </div>
                 </div>
               ))}
@@ -154,7 +154,7 @@ export function Stats() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           
           {/* Tournament Analytics Chart */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="lg:col-span-2 glass-panel p-6 rounded-2xl border border-white/10">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="lg:col-span-2 glass-panel p-6 rounded-2xl border border-lightgray">
             <h3 className="font-bebas text-2xl mb-6 flex items-center gap-2">
               <Activity className="text-electric w-5 h-5" /> TOURNAMENT RUN RATE PROGRESSION
             </h3>
@@ -167,10 +167,10 @@ export function Stats() {
                       <stop offset="95%" stopColor="#00C2FF" stopOpacity={0}/>
                     </linearGradient>
                   </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
-                  <XAxis dataKey="match" stroke="rgba(255,255,255,0.3)" tick={{fontFamily: 'Oswald', fontSize: 12}} />
-                  <YAxis stroke="rgba(255,255,255,0.3)" tick={{fontFamily: 'Oswald', fontSize: 12}} />
-                  <Tooltip contentStyle={{backgroundColor: '#0B0F1A', border: '1px solid rgba(0,194,255,0.3)', borderRadius: '8px'}} itemStyle={{fontFamily: 'Oswald', color: '#00C2FF'}} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.05)" vertical={false} />
+                  <XAxis dataKey="match" stroke="rgba(0,0,0,0.3)" tick={{fontFamily: 'Oswald', fontSize: 12, fill: '#64748b'}} />
+                  <YAxis stroke="rgba(0,0,0,0.3)" tick={{fontFamily: 'Oswald', fontSize: 12, fill: '#64748b'}} />
+                  <Tooltip contentStyle={{backgroundColor: '#FFFFFF', border: '1px solid rgba(0,0,0,0.1)', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)'}} itemStyle={{fontFamily: 'Oswald', color: '#00C2FF'}} />
                   <Area type="monotone" dataKey="runRate" stroke="#00C2FF" strokeWidth={3} fillOpacity={1} fill="url(#colorRR)" />
                 </AreaChart>
               </ResponsiveContainer>
@@ -178,35 +178,35 @@ export function Stats() {
           </motion.div>
 
           {/* Mini Points Table Snapshot */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col">
-            <h3 className="font-bebas text-2xl mb-6 text-white flex items-center justify-between">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="glass-panel p-6 rounded-2xl border border-lightgray flex flex-col">
+            <h3 className="font-bebas text-2xl mb-6 text-slate flex items-center justify-between">
               <span>POINTS TABLE</span>
               <span className="text-xs font-oswald text-emerald tracking-widest uppercase">Live</span>
             </h3>
             <div className="flex-grow overflow-x-auto">
               <table className="w-full text-left">
                 <thead>
-                  <tr className="border-b border-white/10 text-xs font-oswald text-gray-500 uppercase tracking-widest">
+                  <tr className="border-b border-lightgray text-xs font-oswald text-midgray uppercase tracking-widest">
                     <th className="pb-3">Team</th>
                     <th className="pb-3 text-center">P</th>
                     <th className="pb-3 text-center">Pts</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-lightgray">
                   {[...teams].sort((a, b) => b.stats.points - a.stats.points).map((team, idx) => (
-                    <tr key={idx} className="hover:bg-white/5">
+                    <tr key={idx} className="hover:bg-slate/5">
                       <td className="py-3 flex items-center gap-2">
                         <div className={`w-2 h-2 rounded-full ${idx < 4 ? 'bg-emerald shadow-[0_0_5px_rgba(0,255,102,0.5)]' : 'bg-gray-600'}`} />
-                        <span className="font-bebas text-lg text-white">{team.shortName}</span>
+                        <span className="font-bebas text-lg text-slate">{team.shortName}</span>
                       </td>
-                      <td className="py-3 text-center font-oswald text-sm text-gray-300">{team.stats.played}</td>
+                      <td className="py-3 text-center font-oswald text-sm text-darkgray">{team.stats.played}</td>
                       <td className="py-3 text-center font-bebas text-xl text-emerald">{team.stats.points}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <div className="mt-4 pt-4 border-t border-white/10 text-xs font-oswald text-gray-500 tracking-wider text-center">
+            <div className="mt-4 pt-4 border-t border-lightgray text-xs font-oswald text-midgray tracking-wider text-center">
               Top 4 Qualify for Playoffs
             </div>
           </motion.div>
@@ -215,22 +215,22 @@ export function Stats() {
 
         {/* Player Comparison & Match Stats */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="glass-panel p-6 rounded-2xl border border-white/10">
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="glass-panel p-6 rounded-2xl border border-lightgray">
             <h3 className="font-bebas text-2xl mb-6 flex items-center justify-between">
               <span className="flex items-center gap-2">
                 <Target className="text-neonpurple w-5 h-5" /> PLAYER COMPARISON
               </span>
-              <span className="text-xs font-oswald text-gray-500 uppercase tracking-widest">Virat vs Rohit</span>
+              <span className="text-xs font-oswald text-midgray uppercase tracking-widest">Virat vs Rohit</span>
             </h3>
             <div className="h-[300px] w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
-                  <PolarGrid stroke="rgba(255,255,255,0.1)" />
-                  <PolarAngleAxis dataKey="subject" tick={{fill: 'rgba(255,255,255,0.5)', fontSize: 10, fontFamily: 'Oswald'}} />
+                  <PolarGrid stroke="rgba(0,0,0,0.1)" />
+                  <PolarAngleAxis dataKey="subject" tick={{fill: '#64748b', fontSize: 10, fontFamily: 'Oswald'}} />
                   <PolarRadiusAxis angle={30} domain={[0, 150]} tick={false} axisLine={false} />
                   <Radar name="Virat" dataKey="A" stroke="#00C2FF" fill="#00C2FF" fillOpacity={0.3} />
                   <Radar name="Rohit" dataKey="B" stroke="#7B2EFF" fill="#7B2EFF" fillOpacity={0.3} />
-                  <Tooltip contentStyle={{backgroundColor: '#0B0F1A', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px'}} itemStyle={{fontFamily: 'Oswald'}} />
+                  <Tooltip contentStyle={{backgroundColor: '#FFFFFF', border: '1px solid rgba(0,0,0,0.1)', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)'}} itemStyle={{fontFamily: 'Oswald'}} />
                 </RadarChart>
               </ResponsiveContainer>
             </div>
@@ -238,25 +238,25 @@ export function Stats() {
 
           <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="glass-panel p-6 md:p-10 rounded-2xl border border-emerald/20 bg-emerald/5 flex flex-col justify-center relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-emerald/10 blur-[80px] pointer-events-none" />
-            <h3 className="font-bebas text-3xl mb-8 text-white relative z-10 flex items-center gap-2">
+            <h3 className="font-bebas text-3xl mb-8 text-slate relative z-10 flex items-center gap-2">
               <Zap className="text-emerald w-6 h-6" /> TOURNAMENT IMPACT
             </h3>
             <div className="grid grid-cols-2 gap-6 relative z-10">
-              <div className="bg-midnight/50 p-6 rounded-xl border border-white/5 text-center shadow-inner">
-                <div className="text-4xl font-bebas text-white mb-1">12,450</div>
-                <div className="text-xs font-oswald text-gray-400 uppercase tracking-widest">Total Runs</div>
+              <div className="bg-white/50 p-6 rounded-xl border border-lightgray text-center shadow-inner">
+                <div className="text-4xl font-bebas text-slate mb-1">12,450</div>
+                <div className="text-xs font-oswald text-darkgray uppercase tracking-widest">Total Runs</div>
               </div>
-              <div className="bg-midnight/50 p-6 rounded-xl border border-white/5 text-center shadow-inner">
-                <div className="text-4xl font-bebas text-white mb-1">456</div>
-                <div className="text-xs font-oswald text-gray-400 uppercase tracking-widest">Total Sixes</div>
+              <div className="bg-white/50 p-6 rounded-xl border border-lightgray text-center shadow-inner">
+                <div className="text-4xl font-bebas text-slate mb-1">456</div>
+                <div className="text-xs font-oswald text-darkgray uppercase tracking-widest">Total Sixes</div>
               </div>
-              <div className="bg-midnight/50 p-6 rounded-xl border border-white/5 text-center shadow-inner">
-                <div className="text-4xl font-bebas text-white mb-1">320</div>
-                <div className="text-xs font-oswald text-gray-400 uppercase tracking-widest">Total Wickets</div>
+              <div className="bg-white/50 p-6 rounded-xl border border-lightgray text-center shadow-inner">
+                <div className="text-4xl font-bebas text-slate mb-1">320</div>
+                <div className="text-xs font-oswald text-darkgray uppercase tracking-widest">Total Wickets</div>
               </div>
-              <div className="bg-midnight/50 p-6 rounded-xl border border-white/5 text-center shadow-inner">
+              <div className="bg-white/50 p-6 rounded-xl border border-lightgray text-center shadow-inner">
                 <div className="text-4xl font-bebas text-emerald mb-1">100%</div>
-                <div className="text-xs font-oswald text-gray-400 uppercase tracking-widest">Entertainment</div>
+                <div className="text-xs font-oswald text-darkgray uppercase tracking-widest">Entertainment</div>
               </div>
             </div>
           </motion.div>

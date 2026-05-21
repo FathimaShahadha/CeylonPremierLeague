@@ -9,9 +9,8 @@ export function Layout() {
   const isHomePage = location.pathname === '/';
 
   return (
-    <div className="min-h-screen flex flex-col bg-midnight text-white relative">
-      <div className="fixed inset-0 bg-grid-pattern opacity-20 pointer-events-none z-0" />
-      <div className="fixed inset-0 bg-scanline opacity-10 pointer-events-none z-0" />
+    <div className="min-h-screen flex flex-col bg-softwhite text-slate-900 relative">
+      <div className="fixed inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none z-0" />
 
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />

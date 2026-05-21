@@ -22,11 +22,11 @@ export function Sponsors() {
     },
     {
       name: 'ASSOCIATE PARTNERS',
-      color: 'text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]',
-      borderColor: 'border-white/20',
+      color: 'text-slate drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]',
+      borderColor: 'border-lightgray',
       glow: 'shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_40px_rgba(255,255,255,0.1)]',
       sponsors: [4, 5, 6, 7],
-      bgOverlay: 'bg-white/5'
+      bgOverlay: 'bg-slate/5'
     }
   ];
 
@@ -41,7 +41,7 @@ export function Sponsors() {
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-8xl font-bebas text-white mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+            className="text-6xl md:text-8xl font-bebas text-slate mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
           >
             OUR <span className="text-gold drop-shadow-[0_0_20px_rgba(255,215,0,0.4)]">PARTNERS</span>
           </motion.h1>
@@ -49,7 +49,7 @@ export function Sponsors() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-gray-400 font-oswald tracking-[0.3em] uppercase text-sm md:text-base"
+            className="text-darkgray font-oswald tracking-[0.3em] uppercase text-sm md:text-base"
           >
             Powering the Ceylon Premier League
           </motion.p>
@@ -82,7 +82,7 @@ export function Sponsors() {
                     }`}
                   >
                     <div className={`absolute inset-0 ${tier.bgOverlay} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                    <span className="font-bebas text-3xl md:text-5xl text-white/30 group-hover:text-white/80 transition-colors relative z-10 tracking-wider">
+                    <span className="font-bebas text-3xl md:text-5xl text-slate/30 group-hover:text-slate/80 transition-colors relative z-10 tracking-wider">
                       BRAND {s}
                     </span>
                   </div>
@@ -97,7 +97,7 @@ export function Sponsors() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto glass-panel rounded-3xl p-8 md:p-14 border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)] relative overflow-hidden"
+          className="max-w-4xl mx-auto glass-panel rounded-3xl p-8 md:p-14 border border-lightgray shadow-[0_30px_60px_rgba(0,0,0,0.6)] relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-80 h-80 bg-gold/10 blur-[80px] pointer-events-none" />
           
@@ -105,10 +105,10 @@ export function Sponsors() {
             <div className="w-20 h-20 mx-auto bg-gold/10 rounded-full flex items-center justify-center mb-6 border border-gold/30 shadow-[0_0_20px_rgba(255,215,0,0.2)]">
               <Handshake className="w-10 h-10 text-gold" />
             </div>
-            <h2 className="font-bebas text-5xl text-white mb-4">
+            <h2 className="font-bebas text-5xl text-slate mb-4">
               BECOME A SPONSOR
             </h2>
-            <p className="text-gray-400 font-oswald tracking-widest text-base">
+            <p className="text-darkgray font-oswald tracking-widest text-base">
               Join the fastest growing cricket league in the world.
             </p>
           </div>
@@ -116,28 +116,28 @@ export function Sponsors() {
           <form className="space-y-8 relative z-10" onSubmit={(e) => e.preventDefault()}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <label className="block text-xs font-oswald text-gray-400 uppercase tracking-widest mb-2 ml-1">Company Name</label>
-                <input type="text" className="w-full bg-midnight/50 backdrop-blur-md border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-gold transition-all hover:bg-white/5 shadow-inner" />
+                <label className="block text-xs font-oswald text-darkgray uppercase tracking-widest mb-2 ml-1">Company Name</label>
+                <input type="text" className="w-full bg-white/50 backdrop-blur-md border border-lightgray rounded-xl px-5 py-4 text-slate focus:outline-none focus:border-gold transition-all hover:bg-slate/5 shadow-inner" />
               </div>
               <div>
-                <label className="block text-xs font-oswald text-gray-400 uppercase tracking-widest mb-2 ml-1">Contact Person</label>
-                <input type="text" className="w-full bg-midnight/50 backdrop-blur-md border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-gold transition-all hover:bg-white/5 shadow-inner" />
+                <label className="block text-xs font-oswald text-darkgray uppercase tracking-widest mb-2 ml-1">Contact Person</label>
+                <input type="text" className="w-full bg-white/50 backdrop-blur-md border border-lightgray rounded-xl px-5 py-4 text-slate focus:outline-none focus:border-gold transition-all hover:bg-slate/5 shadow-inner" />
               </div>
             </div>
             <div>
-              <label className="block text-xs font-oswald text-gray-400 uppercase tracking-widest mb-2 ml-1">Email Address</label>
-              <input type="email" className="w-full bg-midnight/50 backdrop-blur-md border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-gold transition-all hover:bg-white/5 shadow-inner" />
+              <label className="block text-xs font-oswald text-darkgray uppercase tracking-widest mb-2 ml-1">Email Address</label>
+              <input type="email" className="w-full bg-white/50 backdrop-blur-md border border-lightgray rounded-xl px-5 py-4 text-slate focus:outline-none focus:border-gold transition-all hover:bg-slate/5 shadow-inner" />
             </div>
             <div>
-              <label className="block text-xs font-oswald text-gray-400 uppercase tracking-widest mb-2 ml-1">Partnership Interest</label>
-              <select className="w-full bg-midnight/50 backdrop-blur-md border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-gold transition-all hover:bg-white/5 shadow-inner appearance-none cursor-pointer">
-                <option value="title" className="bg-midnight">Title Sponsorship</option>
-                <option value="associate" className="bg-midnight">Associate Partner</option>
-                <option value="digital" className="bg-midnight">Digital Partner</option>
-                <option value="other" className="bg-midnight">Other</option>
+              <label className="block text-xs font-oswald text-darkgray uppercase tracking-widest mb-2 ml-1">Partnership Interest</label>
+              <select className="w-full bg-white/50 backdrop-blur-md border border-lightgray rounded-xl px-5 py-4 text-slate focus:outline-none focus:border-gold transition-all hover:bg-slate/5 shadow-inner appearance-none cursor-pointer">
+                <option value="title" className="bg-softwhite">Title Sponsorship</option>
+                <option value="associate" className="bg-softwhite">Associate Partner</option>
+                <option value="digital" className="bg-softwhite">Digital Partner</option>
+                <option value="other" className="bg-softwhite">Other</option>
               </select>
             </div>
-            <button className="w-full bg-gold text-midnight font-bebas text-2xl tracking-wider py-5 rounded-xl hover:bg-white transition-all shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:-translate-y-1 duration-300 flex items-center justify-center gap-3">
+            <button className="w-full bg-gold text-white font-bebas text-2xl tracking-wider py-5 rounded-xl hover:bg-white transition-all shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:-translate-y-1 duration-300 flex items-center justify-center gap-3">
               SUBMIT INQUIRY <ArrowRight className="w-6 h-6" />
             </button>
           </form>

@@ -19,7 +19,10 @@ import {
   News,
   About,
   Contact,
-  Admin } from
+  Admin,
+  Login,
+  Register,
+  AdminLogin } from
 './pages';
 export function App() {
   return (
@@ -44,6 +47,9 @@ export function App() {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="admin" element={<Admin />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="admin-login" element={<AdminLogin />} />
         </Route>
       </Routes>
     </Router>);

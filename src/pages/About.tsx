@@ -14,7 +14,7 @@ export function About() {
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-8xl font-bebas text-white mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+            className="text-6xl md:text-8xl font-bebas text-slate mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
           >
             ABOUT <span className="text-emerald drop-shadow-[0_0_20px_rgba(0,255,102,0.4)]">CEYLON</span> PREMIER LEAGUE
           </motion.h1>
@@ -27,18 +27,18 @@ export function About() {
           className="prose prose-invert prose-lg max-w-none space-y-12"
         >
           {/* Vision Card */}
-          <div className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden">
+          <div className="glass-panel p-8 md:p-12 rounded-3xl border border-lightgray shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-emerald/20 blur-[80px] pointer-events-none" />
             <h2 className="font-bebas text-4xl text-emerald mb-6 relative z-10">
               THE VISION
             </h2>
-            <p className="text-gray-300 leading-relaxed mb-6 text-xl relative z-10">
+            <p className="text-darkgray leading-relaxed mb-6 text-xl relative z-10">
               Ceylon Premier League was born from a simple idea: cricket
               needs to be faster, more explosive, and more accessible. We've
               taken the gentleman's game and injected it with pure adrenaline.
-              <span className="text-white font-bold block mt-2 text-2xl font-bebas tracking-wider">10 overs per side. 60 balls to make history.</span>
+              <span className="text-slate font-bold block mt-2 text-2xl font-bebas tracking-wider">10 overs per side. 60 balls to make history.</span>
             </p>
-            <p className="text-gray-300 leading-relaxed text-lg relative z-10">
+            <p className="text-darkgray leading-relaxed text-lg relative z-10">
               Our mission is to globalize the sport by presenting it in a format
               that fits the modern fan's lifestyle—a 90-minute spectacle of
               power hitting, athletic fielding, and strategic bowling.
@@ -53,23 +53,23 @@ export function About() {
               { icon: <Target className="w-8 h-8 text-gold" />, title: 'ELITE TALENT', desc: 'Featuring the best international and domestic players.', glow: 'hover:border-gold/50 hover:shadow-[0_0_30px_rgba(255,215,0,0.2)]' },
               { icon: <Shield className="w-8 h-8 text-neonpurple" />, title: 'FAIR PLAY', desc: 'Strict adherence to the highest standards of integrity.', glow: 'hover:border-neonpurple/50 hover:shadow-[0_0_30px_rgba(123,46,255,0.2)]' }
             ].map((item, i) => (
-              <div key={i} className={`glass-panel p-8 rounded-2xl border border-white/10 flex flex-col items-start gap-4 transition-all duration-500 hover:-translate-y-2 group cursor-default ${item.glow}`}>
-                <div className="p-4 bg-midnight/50 rounded-xl group-hover:scale-110 transition-transform">{item.icon}</div>
+              <div key={i} className={`glass-panel p-8 rounded-2xl border border-lightgray flex flex-col items-start gap-4 transition-all duration-500 hover:-translate-y-2 group cursor-default ${item.glow}`}>
+                <div className="p-4 bg-white/50 rounded-xl group-hover:scale-110 transition-transform">{item.icon}</div>
                 <div>
-                  <h3 className="font-bebas text-3xl text-white mb-2">{item.title}</h3>
-                  <p className="text-base text-gray-400">{item.desc}</p>
+                  <h3 className="font-bebas text-3xl text-slate mb-2">{item.title}</h3>
+                  <p className="text-base text-darkgray">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Rules Card */}
-          <div className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden">
+          <div className="glass-panel p-8 md:p-12 rounded-3xl border border-lightgray shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden">
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-orangeGlow/10 blur-[80px] pointer-events-none" />
-            <h2 className="font-bebas text-4xl text-white mb-8 relative z-10">
+            <h2 className="font-bebas text-4xl text-slate mb-8 relative z-10">
               T10 RULES AT A GLANCE
             </h2>
-            <ul className="space-y-6 text-gray-300 relative z-10">
+            <ul className="space-y-6 text-darkgray relative z-10">
               {[
                 "Matches last 90 minutes (45 minutes per innings).",
                 "Bowlers are limited to a maximum of 2 overs each.",
@@ -77,7 +77,7 @@ export function About() {
                 "Strict time penalties for slow over rates."
               ].map((rule, idx) => (
                 <li key={idx} className="flex items-start gap-4 group">
-                  <span className="font-bebas text-3xl text-emerald bg-emerald/10 w-12 h-12 flex items-center justify-center rounded-xl shrink-0 group-hover:scale-110 group-hover:bg-emerald group-hover:text-midnight transition-all">
+                  <span className="font-bebas text-3xl text-emerald bg-emerald/10 w-12 h-12 flex items-center justify-center rounded-xl shrink-0 group-hover:scale-110 group-hover:bg-emerald group-hover:text-white transition-all">
                     {idx + 1}
                   </span>
                   <span className="text-xl pt-2 font-oswald tracking-wide">{rule}</span>

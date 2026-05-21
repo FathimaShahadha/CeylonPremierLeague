@@ -22,7 +22,7 @@ export function Videos() {
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-8xl font-bebas text-white mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+            className="text-6xl md:text-8xl font-bebas text-slate mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
           >
             THUNDER<span className="text-orangeGlow drop-shadow-[0_0_20px_rgba(255,140,0,0.4)]">TV</span>
           </motion.h1>
@@ -33,23 +33,23 @@ export function Videos() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative w-full aspect-video rounded-3xl overflow-hidden mb-16 group cursor-pointer border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.8)]"
+          className="relative w-full aspect-video rounded-3xl overflow-hidden mb-16 group cursor-pointer border border-lightgray shadow-[0_30px_60px_rgba(0,0,0,0.8)]"
         >
           <img
             src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=1200&q=80"
             alt="Featured"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
           />
-          <div className="absolute inset-0 bg-midnight/40 group-hover:bg-midnight/20 transition-colors flex items-center justify-center">
+          <div className="absolute inset-0 bg-white/40 group-hover:bg-white/20 transition-colors flex items-center justify-center">
             <div className="w-24 h-24 rounded-full bg-orangeGlow/90 flex items-center justify-center backdrop-blur-md group-hover:scale-110 transition-transform shadow-[0_0_30px_rgba(255,140,0,0.8)]">
-              <PlayCircle className="w-12 h-12 text-white fill-white" />
+              <PlayCircle className="w-12 h-12 text-slate fill-white" />
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-midnight via-midnight/80 to-transparent">
-            <span className="bg-orangeGlow text-midnight text-sm font-oswald tracking-widest px-3 py-1 rounded border border-orangeGlow mb-4 inline-block shadow-[0_0_15px_rgba(255,140,0,0.3)]">
+          <div className="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-white via-white/80 to-transparent">
+            <span className="bg-orangeGlow text-white text-sm font-oswald tracking-widest px-3 py-1 rounded border border-orangeGlow mb-4 inline-block shadow-[0_0_15px_rgba(255,140,0,0.3)]">
               LATEST HIGHLIGHTS
             </span>
-            <h2 className="font-bebas text-4xl md:text-6xl text-white drop-shadow-lg leading-tight">
+            <h2 className="font-bebas text-4xl md:text-6xl text-slate drop-shadow-lg leading-tight">
               MUMBAI STRIKERS VS DELHI DYNAMOS | FULL HIGHLIGHTS
             </h2>
           </div>
@@ -63,28 +63,28 @@ export function Videos() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="group cursor-pointer glass-panel p-4 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 hover:-translate-y-2 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_40px_rgba(255,140,0,0.15)]"
+              className="group cursor-pointer glass-panel p-4 rounded-2xl border border-lightgray hover:border-lightgray transition-all duration-300 hover:-translate-y-2 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_40px_rgba(255,140,0,0.15)]"
             >
-              <div className="relative aspect-video rounded-xl overflow-hidden mb-6 border border-white/10">
+              <div className="relative aspect-video rounded-xl overflow-hidden mb-6 border border-lightgray">
                 <img
                   src={video.thumbnail}
                   alt={video.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-midnight/40 group-hover:bg-transparent transition-colors duration-500 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-midnight/50 backdrop-blur-sm flex items-center justify-center border border-white/20 group-hover:bg-orangeGlow/90 group-hover:border-orangeGlow group-hover:scale-110 transition-all duration-500 shadow-lg">
-                    <PlayCircle className="w-8 h-8 text-white fill-transparent group-hover:fill-white transition-all" />
+                <div className="absolute inset-0 bg-white/40 group-hover:bg-transparent transition-colors duration-500 flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-full bg-white/50 backdrop-blur-sm flex items-center justify-center border border-lightgray group-hover:bg-orangeGlow/90 group-hover:border-orangeGlow group-hover:scale-110 transition-all duration-500 shadow-lg">
+                    <PlayCircle className="w-8 h-8 text-slate fill-transparent group-hover:fill-white transition-all" />
                   </div>
                 </div>
-                <div className="absolute bottom-3 right-3 bg-midnight/90 backdrop-blur-md px-3 py-1 rounded text-sm font-oswald tracking-wider text-white flex items-center gap-2 border border-white/10 shadow-lg">
+                <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded text-sm font-oswald tracking-wider text-slate flex items-center gap-2 border border-lightgray shadow-lg">
                   <Clock className="w-3 h-3 text-orangeGlow" /> {video.duration}
                 </div>
               </div>
-              <h3 className="font-bebas text-2xl text-white group-hover:text-orangeGlow transition-colors line-clamp-2 leading-tight mb-2 px-2">
+              <h3 className="font-bebas text-2xl text-slate group-hover:text-orangeGlow transition-colors line-clamp-2 leading-tight mb-2 px-2">
                 {video.title}
               </h3>
               <div className="flex items-center justify-between px-2">
-                <p className="text-sm font-oswald tracking-wide text-gray-500">
+                <p className="text-sm font-oswald tracking-wide text-midgray">
                   {video.views} VIEWS • 2 DAYS AGO
                 </p>
               </div>

@@ -14,6 +14,9 @@ import { News as RealNews } from './News';
 import { About as RealAbout } from './About';
 import { Contact as RealContact } from './Contact';
 import { Admin as RealAdmin } from './Admin';
+import { Login as RealLogin } from './Login';
+import { Register as RealRegister } from './Register';
+import { AdminLogin as RealAdminLogin } from './AdminLogin';
 
 export const Home = RealHome;
 export const Teams = RealTeams;
@@ -31,3 +34,6 @@ export const News = RealNews;
 export const About = RealAbout;
 export const Contact = RealContact;
 export const Admin = RealAdmin;
+export const Login = RealLogin;
+export const Register = RealRegister;
+export const AdminLogin = RealAdminLogin;

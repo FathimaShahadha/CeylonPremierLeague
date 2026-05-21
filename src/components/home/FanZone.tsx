@@ -21,16 +21,16 @@ export function FanZone() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-6xl md:text-8xl font-bebas text-white mb-4"
+            className="text-6xl md:text-8xl font-bebas text-slate-900 mb-4"
           >
-            FAN <span className="text-orangeGlow drop-shadow-[0_0_20px_rgba(255,140,0,0.4)]">ZONE</span>
+            FAN <span className="text-orangeGlow drop-shadow-sm">ZONE</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-gray-400 font-oswald tracking-[0.3em] uppercase text-sm md:text-base"
+            className="text-slate-500 font-oswald tracking-[0.3em] uppercase text-sm md:text-base"
           >
             Feel the Energy. Join the Roar.
           </motion.p>
@@ -42,39 +42,39 @@ export function FanZone() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-panel rounded-3xl p-8 md:p-12 border border-orangeGlow/30 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+            className="glass-panel rounded-3xl p-8 md:p-12 border border-orangeGlow/20 relative overflow-hidden shadow-xl"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-orangeGlow/20 blur-[80px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-orangeGlow/10 blur-[80px] pointer-events-none" />
             
-            <h3 className="font-bebas text-4xl mb-8 flex items-center gap-3 text-white">
+            <h3 className="font-bebas text-4xl mb-8 flex items-center gap-3 text-slate-900">
               <ThumbsUp className="text-orangeGlow w-8 h-8" />
               MATCH PREDICTION
             </h3>
-            <p className="text-gray-400 font-oswald tracking-widest uppercase mb-8">Who will win the next match?</p>
+            <p className="text-slate-500 font-oswald tracking-widest uppercase mb-8">Who will win the next match?</p>
 
             <div className="space-y-6">
               <button
                 onClick={() => handleVote('Mumbai Strikers')}
                 disabled={voted}
-                className="w-full relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 text-left hover:bg-white/10 transition-colors disabled:opacity-50 disabled:cursor-not-allowed group"
+                className="w-full relative overflow-hidden rounded-2xl border border-lightgray bg-white p-6 text-left hover:border-emerald/30 hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
               >
                 <div className="relative z-10 flex justify-between items-center">
-                  <span className="font-bebas text-3xl text-white">Mumbai Strikers</span>
-                  {voted && <span className="font-bebas text-3xl text-emerald drop-shadow-md">65%</span>}
+                  <span className="font-bebas text-3xl text-slate-800">Mumbai Strikers</span>
+                  {voted && <span className="font-bebas text-3xl text-emerald drop-shadow-sm">65%</span>}
                 </div>
-                {voted && <div className="absolute left-0 top-0 bottom-0 bg-emerald/30 w-[65%] transition-all duration-1000 ease-out" />}
+                {voted && <div className="absolute left-0 top-0 bottom-0 bg-emerald/10 w-[65%] transition-all duration-1000 ease-out" />}
               </button>
 
               <button
                 onClick={() => handleVote('Delhi Dynamos')}
                 disabled={voted}
-                className="w-full relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 text-left hover:bg-white/10 transition-colors disabled:opacity-50 disabled:cursor-not-allowed group"
+                className="w-full relative overflow-hidden rounded-2xl border border-lightgray bg-white p-6 text-left hover:border-orangeGlow/30 hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
               >
                 <div className="relative z-10 flex justify-between items-center">
-                  <span className="font-bebas text-3xl text-white">Delhi Dynamos</span>
-                  {voted && <span className="font-bebas text-3xl text-orangeGlow drop-shadow-md">35%</span>}
+                  <span className="font-bebas text-3xl text-slate-800">Delhi Dynamos</span>
+                  {voted && <span className="font-bebas text-3xl text-orangeGlow drop-shadow-sm">35%</span>}
                 </div>
-                {voted && <div className="absolute left-0 top-0 bottom-0 bg-orangeGlow/30 w-[35%] transition-all duration-1000 ease-out" />}
+                {voted && <div className="absolute left-0 top-0 bottom-0 bg-orangeGlow/10 w-[35%] transition-all duration-1000 ease-out" />}
               </button>
             </div>
           </motion.div>
@@ -85,11 +85,11 @@ export function FanZone() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="glass-panel rounded-3xl p-8 md:p-12 border border-white/10 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+            className="glass-panel rounded-3xl p-8 md:p-12 border border-lightgray relative overflow-hidden shadow-xl"
           >
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-emerald/10 blur-[80px] pointer-events-none" />
 
-            <h3 className="font-bebas text-4xl mb-8 flex items-center gap-3 text-white">
+            <h3 className="font-bebas text-4xl mb-8 flex items-center gap-3 text-slate-900">
               <MessageSquare className="text-emerald w-8 h-8" />
               LIVE CHATTER
             </h3>
@@ -101,7 +101,7 @@ export function FanZone() {
                 { user: 'SportsNerd', text: 'The NRR for Mumbai is looking solid now.', time: '12m ago' }
               ].map((comment, i) => (
                 <div key={i} className="flex gap-4 group">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald to-teal-500 flex items-center justify-center shrink-0 font-bebas text-2xl text-midnight shadow-lg group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald to-teal-500 flex items-center justify-center shrink-0 font-bebas text-2xl text-white shadow-md group-hover:scale-110 transition-transform">
                     {comment.user.charAt(0)}
                   </div>
                   <div>
@@ -109,11 +109,11 @@ export function FanZone() {
                       <span className="font-bebas text-xl text-emerald tracking-wide">
                         {comment.user}
                       </span>
-                      <span className="text-xs font-oswald text-gray-500 uppercase tracking-widest">
+                      <span className="text-xs font-oswald text-slate-400 uppercase tracking-widest">
                         {comment.time}
                       </span>
                     </div>
-                    <p className="text-base text-gray-300 mt-1">{comment.text}</p>
+                    <p className="text-base text-slate-600 mt-1">{comment.text}</p>
                   </div>
                 </div>
               ))}
@@ -123,9 +123,9 @@ export function FanZone() {
               <input
                 type="text"
                 placeholder="Join the conversation..."
-                className="w-full bg-white/5 border border-white/20 rounded-xl py-4 pl-6 pr-16 text-base focus:outline-none focus:border-emerald transition-colors text-white backdrop-blur-md"
+                className="w-full bg-white border border-lightgray rounded-xl py-4 pl-6 pr-16 text-base focus:outline-none focus:border-emerald transition-colors text-slate-800 shadow-inner"
               />
-              <button className="absolute right-3 top-1/2 -translate-y-1/2 bg-emerald text-midnight p-2 rounded-lg hover:scale-105 transition-transform">
+              <button className="absolute right-3 top-1/2 -translate-y-1/2 bg-emerald text-white p-2 rounded-lg hover:shadow-lg hover:-translate-y-[1px] transition-all">
                 <Send className="w-5 h-5" />
               </button>
             </div>

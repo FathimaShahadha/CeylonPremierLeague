@@ -25,7 +25,7 @@ export function PointsTable() {
               opacity: 1,
               y: 0
             }}
-            className="text-5xl md:text-7xl font-bebas text-white mb-2">
+            className="text-5xl md:text-7xl font-bebas text-slate mb-2">
             
             POINTS <span className="text-emerald">TABLE</span>
           </motion.h1>
@@ -39,7 +39,7 @@ export function PointsTable() {
             transition={{
               delay: 0.2
             }}
-            className="text-gray-400 font-oswald tracking-[0.2em] uppercase">
+            className="text-darkgray font-oswald tracking-[0.2em] uppercase">
             
             The Road to the Playoffs
           </motion.p>
@@ -57,39 +57,39 @@ export function PointsTable() {
           transition={{
             delay: 0.3
           }}
-          className="glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+          className="glass-panel rounded-2xl overflow-hidden border border-lightgray shadow-2xl">
           
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-white/5 border-b border-white/10">
-                  <th className="p-4 font-oswald text-xs tracking-widest text-gray-400 uppercase w-16 text-center">
+                <tr className="bg-slate/5 border-b border-lightgray">
+                  <th className="p-4 font-oswald text-xs tracking-widest text-darkgray uppercase w-16 text-center">
                     Pos
                   </th>
-                  <th className="p-4 font-oswald text-xs tracking-widest text-gray-400 uppercase">
+                  <th className="p-4 font-oswald text-xs tracking-widest text-darkgray uppercase">
                     Team
                   </th>
-                  <th className="p-4 font-oswald text-xs tracking-widest text-gray-400 uppercase text-center w-12">
+                  <th className="p-4 font-oswald text-xs tracking-widest text-darkgray uppercase text-center w-12">
                     P
                   </th>
-                  <th className="p-4 font-oswald text-xs tracking-widest text-gray-400 uppercase text-center w-12">
+                  <th className="p-4 font-oswald text-xs tracking-widest text-darkgray uppercase text-center w-12">
                     W
                   </th>
-                  <th className="p-4 font-oswald text-xs tracking-widest text-gray-400 uppercase text-center w-12">
+                  <th className="p-4 font-oswald text-xs tracking-widest text-darkgray uppercase text-center w-12">
                     L
                   </th>
-                  <th className="p-4 font-oswald text-xs tracking-widest text-gray-400 uppercase text-center w-20">
+                  <th className="p-4 font-oswald text-xs tracking-widest text-darkgray uppercase text-center w-20">
                     NRR
                   </th>
                   <th className="p-4 font-oswald text-xs tracking-widest text-emerald uppercase text-center w-16">
                     Pts
                   </th>
-                  <th className="p-4 font-oswald text-xs tracking-widest text-gray-400 uppercase text-center w-32 hidden sm:table-cell">
+                  <th className="p-4 font-oswald text-xs tracking-widest text-darkgray uppercase text-center w-32 hidden sm:table-cell">
                     Form
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5">
+              <tbody className="divide-y divide-lightgray">
                 {sortedTeams.map((team, index) => {
                   const isTop4 = index < 4;
                   // Generate random form for UI
@@ -113,11 +113,11 @@ export function PointsTable() {
                       transition={{
                         delay: index * 0.1
                       }}
-                      className={`group hover:bg-white/5 transition-colors ${isTop4 ? 'bg-emerald/5' : ''}`}>
+                      className={`group hover:bg-slate/5 transition-colors ${isTop4 ? 'bg-emerald/5' : ''}`}>
                       
                       <td className="p-4 text-center">
                         <div
-                          className={`w-8 h-8 rounded-full flex items-center justify-center mx-auto font-bebas text-xl ${isTop4 ? 'bg-emerald text-midnight shadow-[0_0_15px_rgba(0,255,102,0.5)]' : 'bg-white/10 text-gray-400'}`}>
+                          className={`w-8 h-8 rounded-full flex items-center justify-center mx-auto font-bebas text-xl ${isTop4 ? 'bg-emerald text-white shadow-[0_0_15px_rgba(0,255,102,0.5)]' : 'bg-slate/10 text-darkgray'}`}>
                           
                           {index + 1}
                         </div>
@@ -137,16 +137,16 @@ export function PointsTable() {
                             
                           </div>
                           <div>
-                            <div className="font-bebas text-xl text-white group-hover:text-emerald transition-colors">
+                            <div className="font-bebas text-xl text-slate group-hover:text-emerald transition-colors">
                               {team.name}
                             </div>
-                            <div className="text-xs font-oswald text-gray-500 hidden sm:block">
+                            <div className="text-xs font-oswald text-midgray hidden sm:block">
                               {team.shortName}
                             </div>
                           </div>
                         </div>
                       </td>
-                      <td className="p-4 text-center font-bebas text-xl text-gray-300">
+                      <td className="p-4 text-center font-bebas text-xl text-darkgray">
                         {team.stats.played}
                       </td>
                       <td className="p-4 text-center font-bebas text-xl text-green-400">
@@ -155,7 +155,7 @@ export function PointsTable() {
                       <td className="p-4 text-center font-bebas text-xl text-red-400">
                         {team.stats.lost}
                       </td>
-                      <td className="p-4 text-center font-oswald text-sm text-gray-300">
+                      <td className="p-4 text-center font-oswald text-sm text-darkgray">
                         {team.stats.nrr > 0 ? '+' : ''}
                         {team.stats.nrr.toFixed(3)}
                       </td>
@@ -182,12 +182,12 @@ export function PointsTable() {
           </div>
         </motion.div>
 
-        <div className="mt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-oswald text-gray-400 tracking-wider">
+        <div className="mt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-oswald text-darkgray tracking-wider">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-emerald/20 border border-emerald/50" />
             <span>Top 4 teams qualify for Playoffs</span>
           </div>
-          <div className="flex items-center gap-2 text-gray-500">
+          <div className="flex items-center gap-2 text-midgray">
             <Info className="w-4 h-4" />
             <span>Tied points are resolved by NRR</span>
           </div>

@@ -53,19 +53,29 @@ export function Navbar() {
             <Link
               key={link.name}
               to={link.path}
-              className={`font-oswald text-sm tracking-widest uppercase transition-all duration-300 hover:text-emerald ${location.pathname === link.path ? 'text-emerald drop-shadow-[0_0_8px_rgba(0,255,102,0.8)] border-b-2 border-emerald pb-1' : 'text-gray-300'}`}>
+              className={`font-oswald text-sm tracking-widest uppercase transition-all duration-300 hover:text-emerald ${location.pathname === link.path ? 'text-emerald font-bold border-b-2 border-emerald pb-1' : 'text-slate'}`}>
               
                 {link.name}
               </Link>
             )}
             <Link
-              to="/admin"
-              className="font-oswald text-sm tracking-widest uppercase transition-all duration-300 hover:text-emerald text-gray-300 mr-2">
+              to="/login"
+              className="font-oswald text-sm tracking-widest uppercase transition-all duration-300 hover:text-emerald text-slate">
+              Login
+            </Link>
+            <Link
+              to="/register"
+              className="font-oswald text-sm tracking-widest uppercase transition-all duration-300 hover:text-emerald text-slate">
+              Register
+            </Link>
+            <Link
+              to="/admin-login"
+              className="font-oswald text-sm tracking-widest uppercase transition-all duration-300 hover:text-emerald text-slate mr-2">
               Admin Area
             </Link>
             <Link
               to="/live"
-              className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-emerald/10 border border-emerald text-emerald font-oswald tracking-wider text-sm hover:bg-emerald hover:text-midnight transition-all neon-glow-emerald shadow-lg group">
+              className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-emerald/10 border border-emerald text-emerald font-oswald tracking-wider text-sm hover:bg-emerald hover:text-white transition-all neon-glow-emerald shadow-lg group">
               
               <PlayCircle className="w-4 h-4 group-hover:scale-110 transition-transform" />
               WATCH LIVE
@@ -76,7 +86,7 @@ export function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-white hover:text-emerald transition-colors">
+              className="text-slate hover:text-emerald transition-colors">
               
               {mobileMenuOpen ?
               <X className="w-6 h-6" /> :
@@ -90,28 +100,40 @@ export function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen &&
-      <div className="md:hidden glass-panel absolute top-full left-0 right-0 border-t border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.8)] max-h-[calc(100vh-80px)] overflow-y-auto">
+      <div className="md:hidden glass-panel absolute top-full left-0 right-0 border-t border-lightgray shadow-lg max-h-[calc(100vh-80px)] overflow-y-auto">
           <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) =>
           <Link
             key={link.name}
             to={link.path}
             onClick={() => setMobileMenuOpen(false)}
-            className={`block px-4 py-3 font-oswald text-base tracking-widest uppercase rounded-md transition-colors ${location.pathname === link.path ? 'bg-emerald/10 text-emerald border-l-2 border-emerald' : 'text-gray-300 hover:text-emerald hover:bg-white/5'}`}>
+            className={`block px-4 py-3 font-oswald text-base tracking-widest uppercase rounded-md transition-colors ${location.pathname === link.path ? 'bg-emerald/10 text-emerald border-l-2 border-emerald' : 'text-slate hover:text-emerald hover:bg-gray-50'}`}>
             
                 {link.name}
               </Link>
           )}
             <Link
-              to="/admin"
+              to="/login"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-3 font-oswald text-base tracking-widest uppercase text-gray-300 hover:text-emerald hover:bg-white/5 rounded-md">
+              className="block px-4 py-3 font-oswald text-base tracking-widest uppercase text-slate hover:text-emerald hover:bg-gray-50 rounded-md">
+              Login
+            </Link>
+            <Link
+              to="/register"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-4 py-3 font-oswald text-base tracking-widest uppercase text-slate hover:text-emerald hover:bg-gray-50 rounded-md">
+              Register
+            </Link>
+            <Link
+              to="/admin-login"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-4 py-3 font-oswald text-base tracking-widest uppercase text-slate hover:text-emerald hover:bg-gray-50 rounded-md">
               Admin Area
             </Link>
             <Link
             to="/live"
             onClick={() => setMobileMenuOpen(false)}
-            className="mt-4 flex items-center justify-center gap-2 px-5 py-3 rounded-md bg-emerald/10 border border-emerald text-emerald font-oswald tracking-wider text-base neon-glow-emerald group hover:bg-emerald hover:text-midnight transition-all">
+            className="mt-4 flex items-center justify-center gap-2 px-5 py-3 rounded-md bg-emerald/10 border border-emerald text-emerald font-oswald tracking-wider text-base neon-glow-emerald group hover:bg-emerald hover:text-white transition-all">
             
               <PlayCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
               WATCH LIVE
